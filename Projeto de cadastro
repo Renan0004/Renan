@@ -1,0 +1,84 @@
+package com.senai.swing;
+
+import javax.swing.*;
+import java.awt.*;
+import java.sql.*;
+
+public class Cadastro {
+
+    private JPanel panelDados;
+    private JList txtRenan;
+    private JButton btnVer;
+    private JButton btnEditar;
+    private JButton btnRemover;
+    private JButton btnCadastrar;
+    private JTextField textField1;
+    private JRadioButton rbM;
+    private JRadioButton rbF;
+    private JLabel lblNome;
+    private JLabel lblDataNascimento;
+    private JFormattedTextField txtFData;
+    private JComboBox comboBox1;
+    private JLabel lblCurso;
+    private JTextField txtEmail;
+    private JCheckBox aceitaReceberMensagensInstitucionaisCheckBox;
+    private JTextArea txtObservacao;
+    private JButton btnCancelar;
+    private JButton btnSalvar;
+    private JLabel lblObservacoes;
+    private JLabel lblEmail;
+    private JPanel panelMain;
+    private JPanel panelList;
+    private JLabel lblSexo;
+
+    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+//        JFrame tela = new JFrame("Cadastro do Aluno");
+//        tela.setPreferredSize(new Dimension(700, 500));
+//        tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        tela.setContentPane(new Cadastro().panelMain);
+//        tela.pack();
+//        tela.setVisible(true);
+
+//        Class.forName("com.mysql.cj.jdbc.Driver");
+//        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Cadastro", "root", "1234");
+//        PreparedStatement ps = conn.prepareStatement("SELECT * FROM Aluno");
+//        ResultSet rs = ps.executeQuery();
+//        while (rs.next()) {
+//            String n1 = rs.getString("Nome");
+//            int id = rs.getInt("id_aluno");
+//            String n2 = rs.getString(2);
+//            System.out.println(n1 + " - " + n2);
+//            System.out.println(id + " - " + n2);
+
+        System.setProperty("java.library.path", "C:/Users/Aluno/Downloads/sqljdbc_12.6/ptb/auth/x64/mssql-jdbc_auth-12.6.3.x64.dll");
+
+        String url = "jdbc:sqlserver://SNCCH02LABF19\\TEW_SQLEXPRESS;databaseName=Cadastro;integratedSecurity=true;encrypt=false;";
+        Connection connection = null;
+        Statement s = null;
+        ResultSet rs = null;
+
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+
+            connection = DriverManager.getConnection(url);
+
+            if (connection != null) {
+                System.out.println("Conexão estabelecida com sucesso!");
+
+                s = connection.createStatement();
+
+                String sql = "SELECT * FROM Aluno";
+                rs = s.executeQuery(sql);
+
+                while (rs.next()) {
+                    int id = rs.getInt("id");
+                    String nome = rs.getString("nome");
+                    System.out.println(id + " - " + nome);
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+}
