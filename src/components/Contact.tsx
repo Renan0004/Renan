@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { FaWhatsapp, FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa'
 import emailjs from '@emailjs/browser'
@@ -15,32 +15,34 @@ const Contact = () => {
     mensagem: ''
   })
 
+  useEffect(() => {
+    // Inicializa o EmailJS
+    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
+  }, [])
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (!form.current) return
+
+    setIsSubmitting(true)
     
     try {
-      const response = await emailjs.send(
+      const response = await emailjs.sendForm(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        {
-          ...formData,
-          reply_to: formData.email
-        },
+        form.current,
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
 
       if (response.status === 200) {
         toast.success('Mensagem enviada com sucesso!')
-        setFormData({
-          nome: '',
-          email: '',
-          assunto: '',
-          mensagem: ''
-        })
+        form.current.reset()
       }
     } catch (error) {
       console.error('Erro ao enviar email:', error)
       toast.error('Erro ao enviar mensagem. Tente novamente.')
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
