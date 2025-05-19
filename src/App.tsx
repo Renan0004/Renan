@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { AnimatePresence } from 'framer-motion'
+import { Toaster } from 'react-hot-toast'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -29,24 +30,43 @@ function App() {
 
   return (
     <>
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          duration: 3000,
+          style: {
+            background: '#1E293B',
+            color: '#fff',
+          },
+          success: {
+            iconTheme: {
+              primary: '#FFD700',
+              secondary: '#1E293B',
+            },
+          },
+        }}
+      />
+      
       <AnimatePresence mode="wait">
-        {isLoading && <Loading />}
+        {isLoading ? (
+          <Loading key="loading" />
+        ) : (
+          <div className="bg-dark-blue min-h-screen text-white">
+            <Header />
+            <main>
+              <Hero />
+              <About />
+              <Skills />
+              <Services />
+              <Projects />
+              <Education />
+              <Contact />
+            </main>
+            <Footer />
+            <FloatingWhatsApp />
+          </div>
+        )}
       </AnimatePresence>
-
-      <div className="bg-dark-blue min-h-screen text-white">
-        <Header />
-        <main>
-          <Hero />
-          <About />
-          <Skills />
-          <Services />
-          <Projects />
-          <Education />
-          <Contact />
-        </main>
-        <Footer />
-        <FloatingWhatsApp />
-      </div>
     </>
   )
 }

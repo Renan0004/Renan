@@ -2,45 +2,46 @@ import { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { FaWhatsapp, FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa'
 import emailjs from '@emailjs/browser'
+import { toast } from 'react-hot-toast'
 
 const Contact = () => {
   const form = useRef<HTMLFormElement>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [formData, setFormData] = useState({
+    nome: '',
+    email: '',
+    assunto: '',
+    mensagem: ''
+  })
 
-  const sendEmail = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!form.current) return
+    
+    try {
+      const response = await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          ...formData,
+          reply_to: formData.email
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
 
-    setIsSubmitting(true)
-
-    const formData = new FormData(form.current)
-    const templateParams = {
-      nome: formData.get('nome'),
-      email: formData.get('email'),
-      assunto: formData.get('assunto'),
-      mensagem: formData.get('mensagem'),
-      subject: `Nova mensagem de contato - ${formData.get('nome')} - ${formData.get('assunto')}`
+      if (response.status === 200) {
+        toast.success('Mensagem enviada com sucesso!')
+        setFormData({
+          nome: '',
+          email: '',
+          assunto: '',
+          mensagem: ''
+        })
+      }
+    } catch (error) {
+      console.error('Erro ao enviar email:', error)
+      toast.error('Erro ao enviar mensagem. Tente novamente.')
     }
-
-    emailjs.send(
-      'service_p2xw3ok',
-      'template_levcuwc',
-      templateParams,
-      'yWD3Cj-Bqqxz6Kts-'
-    )
-    .then(() => {
-      setSubmitStatus('success')
-      form.current?.reset()
-    })
-    .catch((error) => {
-      console.error('EmailJS Error:', error)
-      setSubmitStatus('error')
-    })
-    .finally(() => {
-      setIsSubmitting(false)
-      setTimeout(() => setSubmitStatus('idle'), 3000)
-    })
   }
 
   const contactMethods = [
@@ -95,7 +96,7 @@ const Contact = () => {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <form ref={form} onSubmit={sendEmail} className="space-y-6">
+            <form ref={form} onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="nome" className="block text-gray-300 mb-2">
                   Nome
@@ -107,6 +108,8 @@ const Contact = () => {
                   required
                   className="w-full px-4 py-3 rounded-lg bg-light-blue border border-gray-700 text-gray-200 focus:outline-none focus:border-primary-gold transition-colors"
                   placeholder="Seu nome"
+                  value={formData.nome}
+                  onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
                 />
               </div>
 
@@ -121,6 +124,8 @@ const Contact = () => {
                   required
                   className="w-full px-4 py-3 rounded-lg bg-light-blue border border-gray-700 text-gray-200 focus:outline-none focus:border-primary-gold transition-colors"
                   placeholder="seu@email.com"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 />
               </div>
 
@@ -135,6 +140,8 @@ const Contact = () => {
                   required
                   className="w-full px-4 py-3 rounded-lg bg-light-blue border border-gray-700 text-gray-200 focus:outline-none focus:border-primary-gold transition-colors"
                   placeholder="Assunto da mensagem"
+                  value={formData.assunto}
+                  onChange={(e) => setFormData({ ...formData, assunto: e.target.value })}
                 />
               </div>
 
@@ -149,6 +156,8 @@ const Contact = () => {
                   rows={5}
                   className="w-full px-4 py-3 rounded-lg bg-light-blue border border-gray-700 text-gray-200 focus:outline-none focus:border-primary-gold transition-colors resize-none"
                   placeholder="Sua mensagem..."
+                  value={formData.mensagem}
+                  onChange={(e) => setFormData({ ...formData, mensagem: e.target.value })}
                 />
               </div>
 
