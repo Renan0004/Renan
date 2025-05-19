@@ -24,7 +24,7 @@ const Contact = () => {
     try {
       const response = await emailjs.sendForm(
         'service_p2xw3ok',
-        'template_ip17pex',
+        'template_levcuwc',
         form.current,
         'yWD3Cj-Bqqxz6Kts-'
       )

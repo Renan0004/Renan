@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaGithub, FaExternalLinkAlt, FaArrowRight } from 'react-icons/fa'
+import { BiLinkExternal } from 'react-icons/bi'
 
 // Importando as imagens
 import imgOdontoCot from '../assets/images/OdontoCot.jpeg'
@@ -16,6 +17,8 @@ interface Project {
   link: string;
   featured?: boolean;
   category?: string;
+  github?: string;
+  demo?: string;
 }
 
 const projects: Project[] = [
@@ -27,7 +30,8 @@ const projects: Project[] = [
     tech: ["React", "TypeScript", "TailwindCSS", "Node.js", "MongoDB"],
     link: "https://github.com/Renan0004/Site-OdontoCot",
     featured: true,
-    category: "Desenvolvimento Web Full Stack"
+    category: "Desenvolvimento Web Full Stack",
+    github: "https://github.com/Renan0004/Site-OdontoCot"
   },
   {
     id: 2,
@@ -37,7 +41,8 @@ const projects: Project[] = [
     tech: ["React", "Next.js", "TailwindCSS", "API WhatsApp"],
     link: "https://github.com/Renan0004/Site-Odontologia-DrAna",
     featured: true,
-    category: "Marketing Digital"
+    category: "Marketing Digital",
+    github: "https://github.com/Renan0004/Site-Odontologia-DrAna"
   },
   {
     id: 3,
@@ -47,7 +52,8 @@ const projects: Project[] = [
     tech: ["React", "TypeScript", "Node.js", "Stripe", "PostgreSQL"],
     link: "https://github.com/Renan0004/Site-Odontologia-DraLais",
     featured: true,
-    category: "Plataforma E-learning"
+    category: "Plataforma E-learning",
+    github: "https://github.com/Renan0004/Site-Odontologia-DraLais"
   },
   {
     id: 4,
@@ -56,7 +62,8 @@ const projects: Project[] = [
     image: "https://via.placeholder.com/400x300?text=ChatBot",
     tech: ["Node.js", "WhatsApp API", "OpenAI", "MongoDB"],
     link: "https://github.com/Renan0004",
-    category: "Automação"
+    category: "Automação",
+    demo: "https://dev_chatbot.com"
   },
   {
     id: 5,
@@ -65,7 +72,8 @@ const projects: Project[] = [
     image: "https://via.placeholder.com/400x300?text=Barbearia",
     tech: ["React", "TypeScript", "Node.js", "PostgreSQL"],
     link: "https://github.com/Renan0004/Barbearia-Lirio",
-    category: "Sistemas de Gestão"
+    category: "Sistemas de Gestão",
+    github: "https://github.com/Renan0004/Barbearia-Lirio"
   },
   {
     id: 6,
@@ -74,7 +82,8 @@ const projects: Project[] = [
     image: "https://via.placeholder.com/400x300?text=FinControl",
     tech: ["Node.js", "Express", "MongoDB", "React"],
     link: "https://github.com/Renan0004/FinControl",
-    category: "Aplicações Web"
+    category: "Aplicações Web",
+    github: "https://github.com/Renan0004/FinControl"
   }
 ]
 
@@ -158,7 +167,7 @@ const Projects = () => {
                   </h3>
                   {/* Link do GitHub */}
                   <a
-                    href={project.link}
+                    href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary-gold hover:text-secondary-gold transition-colors duration-300"
@@ -207,7 +216,14 @@ const Projects = () => {
                 <h3 className="text-xl font-bold text-white group-hover:text-primary-gold transition-colors duration-300">
                   {project.title}
                 </h3>
-                <FaExternalLinkAlt className="text-primary-gold group-hover:text-secondary-gold transition-colors duration-300" />
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-gold hover:text-secondary-gold transition-colors duration-300"
+                >
+                  <BiLinkExternal className="text-2xl" />
+                </a>
               </div>
               <p className="text-gray-300 text-lg mb-6 line-clamp-2">
                 {project.description}
