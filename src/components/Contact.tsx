@@ -4,6 +4,8 @@ import { FaWhatsapp, FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa'
 import emailjs from '@emailjs/browser'
 import { toast } from 'react-hot-toast'
 
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+
 const Contact = () => {
   const form = useRef<HTMLFormElement>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -16,13 +18,20 @@ const Contact = () => {
   })
 
   useEffect(() => {
+    if (!PUBLIC_KEY) {
+      console.error('EmailJS Public Key não encontrada!')
+      return
+    }
     // Inicializa o EmailJS
-    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
+    emailjs.init(PUBLIC_KEY)
   }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!form.current) return
+    if (!form.current || !PUBLIC_KEY) {
+      toast.error('Erro de configuração do EmailJS')
+      return
+    }
 
     setIsSubmitting(true)
     
@@ -31,16 +40,24 @@ const Contact = () => {
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         form.current,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        PUBLIC_KEY
       )
 
       if (response.status === 200) {
         toast.success('Mensagem enviada com sucesso!')
         form.current.reset()
+        setFormData({
+          nome: '',
+          email: '',
+          assunto: '',
+          mensagem: ''
+        })
+        setSubmitStatus('success')
       }
     } catch (error) {
       console.error('Erro ao enviar email:', error)
       toast.error('Erro ao enviar mensagem. Tente novamente.')
+      setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
     }
