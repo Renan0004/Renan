@@ -1,22 +1,20 @@
 import { motion } from 'framer-motion'
 import eu from '../assets/images/eu.png'
-import { FaGithub, FaLinkedin, FaWhatsapp } from 'react-icons/fa'
 import { useEffect, useState } from 'react'
-import type { MouseEvent } from 'react'
 
 const Hero = () => {
   const [ mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
+    const handleMouseMove = (e: globalThis.MouseEvent) => {
       setMousePosition({
         x: (e.clientX - window.innerWidth / 2) / 50,
         y: (e.clientY - window.innerHeight / 2) / 50
       })
     }
 
-    window.addEventListener('mousemove', handleMouseMove as any)
-    return () => window.removeEventListener('mousemove', handleMouseMove as any)
+    window.addEventListener('mousemove', handleMouseMove)
+    return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [])
 
   return (
