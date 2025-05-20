@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import { FaGithub } from 'react-icons/fa'
-import { BiLinkExternal } from 'react-icons/bi'
 
 // Importando as imagens
 import imgOdontoCot from '../assets/images/OdontoCot.jpeg'

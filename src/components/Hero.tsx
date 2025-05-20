@@ -18,27 +18,6 @@ const Hero = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [])
 
-  const socialLinks = [
-    {
-      name: 'GitHub',
-      icon: <FaGithub className="text-2xl" />,
-      url: 'https://github.com/Renan0004',
-      hoverColor: 'hover:bg-gray-800'
-    },
-    {
-      name: 'LinkedIn',
-      icon: <FaLinkedin className="text-2xl" />,
-      url: 'https://linkedin.com/in/renan-dirceu-de-almeida-16645025a',
-      hoverColor: 'hover:bg-blue-600'
-    },
-    {
-      name: 'WhatsApp',
-      icon: <FaWhatsapp className="text-2xl" />,
-      url: 'https://wa.me/5541996300822',
-      hoverColor: 'hover:bg-green-600'
-    }
-  ]
-
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center bg-dark-blue relative overflow-hidden px-4 py-12 sm:px-6 lg:px-8">
       {/* Padrão de fundo animado com partículas */}

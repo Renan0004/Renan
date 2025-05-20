@@ -6,9 +6,9 @@ import { toast } from 'react-hot-toast'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
+    nome: '',
     email: '',
-    message: ''
+    mensagem: ''
   })
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -24,18 +24,18 @@ const Contact = () => {
     
     try {
       await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        'service_p2xw3ok',
+        'template_levcuwc',
         {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
+          nome: formData.nome,
+          email: formData.email,
+          mensagem: formData.mensagem,
         },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        'yWD3Cj-Bqqxz6Kts-'
       )
 
       toast.success('Mensagem enviada com sucesso!')
-      setFormData({ name: '', email: '', message: '' })
+      setFormData({ nome: '', email: '', mensagem: '' })
     } catch (error) {
       console.error('Erro ao enviar email:', error)
       toast.error('Erro ao enviar mensagem. Tente novamente.')
@@ -73,12 +73,12 @@ const Contact = () => {
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-white mb-2">Nome</label>
+                <label htmlFor="nome" className="block text-white mb-2">Nome</label>
                 <input
                   type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
+                  id="nome"
+                  name="nome"
+                  value={formData.nome}
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-2 bg-dark-blue/50 border border-primary-gold/20 rounded-lg text-white focus:outline-none focus:border-primary-gold transition-colors duration-300"
@@ -99,11 +99,11 @@ const Contact = () => {
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-white mb-2">Mensagem</label>
+                <label htmlFor="mensagem" className="block text-white mb-2">Mensagem</label>
                 <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
+                  id="mensagem"
+                  name="mensagem"
+                  value={formData.mensagem}
                   onChange={handleChange}
                   required
                   rows={4}
@@ -130,7 +130,7 @@ const Contact = () => {
           >
             {/* WhatsApp */}
             <a
-              href="https://wa.me/4196300822"
+              href="https://wa.me/5541996300822"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center p-6 bg-light-blue/10 rounded-xl hover:bg-light-blue/20 transition-all duration-300 group"
@@ -158,7 +158,7 @@ const Contact = () => {
 
             {/* LinkedIn */}
             <a
-              href="https://www.linkedin.com/in/renan-dirceu-de-almeida-16645025a"
+              href="https://www.linkedin.com/in/renan-silva-5ab695271/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center p-6 bg-light-blue/10 rounded-xl hover:bg-light-blue/20 transition-all duration-300 group"
