@@ -8,7 +8,7 @@ import imgLais from '../assets/images/Lais.jpeg'
 import imgBarbearia from '../assets/images/barbearia.jpeg'
 import imgSalaoLirio from '../assets/images/SalaoLirio.jpeg'
 import imgFinControl from '../assets/images/Fincontrol.jpeg'
-import imgChatBot from '../assets/images/chatBot.jpg'
+import imgChatBot from '../assets/images/chatbot.jpg'
 
 interface Project {
   id: number;
