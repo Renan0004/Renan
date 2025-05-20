@@ -49,17 +49,16 @@ const Navbar = () => {
             >
               Início
             </Link>
-          </div>
-          <div className="hidden md:flex items-center space-x-8">
             <Link
               to="about"
               spy={true}
               smooth={true}
               offset={-100}
               duration={500}
-              className="text-gray-300 hover:text-primary-gold transition-colors duration-300 cursor-pointer"
             >
-              Sobre
+              <span className="text-gray-300 hover:text-primary-gold transition-colors duration-300 cursor-pointer">
+                Sobre
+              </span>
             </Link>
             <Link
               to="services"
