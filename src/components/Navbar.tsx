@@ -1,24 +1,18 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { FaGithub, FaLinkedin, FaWhatsapp } from 'react-icons/fa'
+import { Link } from 'react-scroll'
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+      setIsScrolled(window.scrollY > 0)
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    })
-  }
 
   return (
     <motion.nav
@@ -29,32 +23,74 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <motion.button
-            onClick={scrollToTop}
+          <Link
+            to="hero"
+            spy={true}
+            smooth={true}
+            offset={-100}
+            duration={500}
             className="text-2xl font-bold text-white hover:text-primary-gold transition-colors duration-300 cursor-pointer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
           >
             {'<Renan />'}
-          </motion.button>
+          </Link>
 
           {/* Links de navegação */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#about" className="text-gray-300 hover:text-primary-gold transition-colors duration-300">
+            <Link
+              to="hero"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+              className="text-gray-300 hover:text-primary-gold transition-colors duration-300 cursor-pointer"
+            >
+              Início
+            </Link>
+          </div>
+          <div className="hidden md:flex items-center space-x-8">
+            <Link
+              to="about"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+              className="text-gray-300 hover:text-primary-gold transition-colors duration-300 cursor-pointer"
+            >
               Sobre
-            </a>
-            <a href="#services" className="text-gray-300 hover:text-primary-gold transition-colors duration-300">
+            </Link>
+            <Link
+              to="services"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+              className="text-gray-300 hover:text-primary-gold transition-colors duration-300 cursor-pointer"
+            >
               Serviços
-            </a>
-            <a href="#projects" className="text-gray-300 hover:text-primary-gold transition-colors duration-300">
+            </Link>
+            <Link
+              to="projects"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+              className="text-gray-300 hover:text-primary-gold transition-colors duration-300 cursor-pointer"
+            >
               Projetos
-            </a>
-            <a href="#contact" className="text-gray-300 hover:text-primary-gold transition-colors duration-300">
+            </Link>
+            <Link
+              to="contact"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+              className="text-gray-300 hover:text-primary-gold transition-colors duration-300 cursor-pointer"
+            >
               Contato
-            </a>
+            </Link>
           </div>
 
           {/* Redes sociais */}

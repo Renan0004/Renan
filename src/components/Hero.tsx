@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin, FaWhatsapp } from 'react-icons/fa'
 import { useEffect, useState } from 'react'
 
 const Hero = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [ mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -40,7 +40,7 @@ const Hero = () => {
   ]
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-dark-blue relative overflow-hidden px-4 py-12 sm:px-6 lg:px-8">
+    <section id="hero" className="min-h-screen flex items-center justify-center bg-dark-blue relative overflow-hidden px-4 py-12 sm:px-6 lg:px-8">
       {/* Padrão de fundo animado com partículas */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
