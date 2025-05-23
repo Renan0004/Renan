@@ -1,9 +1,20 @@
 import { motion } from 'framer-motion'
 import eu from '../assets/images/Eu.png'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
+import Particles from "react-tsparticles"
+import { loadSlim } from "tsparticles-slim"
+import type { Container, Engine } from "tsparticles-engine"
 
 const Hero = () => {
   const [ mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+
+  const particlesInit = useCallback(async (engine: Engine) => {
+    await loadSlim(engine)
+  }, [])
+
+  const particlesLoaded = useCallback(async (container: Container | undefined) => {
+    console.log(container)
+  }, [])
 
   useEffect(() => {
     const handleMouseMove = (e: globalThis.MouseEvent) => {
@@ -19,42 +30,86 @@ const Hero = () => {
 
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center bg-dark-blue relative overflow-hidden px-4 py-12 sm:px-6 lg:px-8">
-      {/* Padrão de fundo animado com partículas */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
-          backgroundSize: '30px 30px'
-        }} />
-      </div>
+      {/* Particles.js Background */}
+      <Particles
+        id="tsparticles"
+        init={particlesInit}
+        loaded={particlesLoaded}
+        options={{
+          background: {
+            color: {
+              value: "transparent",
+            },
+          },
+          fpsLimit: 120,
+          interactivity: {
+            events: {
+              onClick: {
+                enable: true,
+                mode: "push",
+              },
+              onHover: {
+                enable: true,
+                mode: "repulse",
+              },
+              resize: true,
+            },
+            modes: {
+              push: {
+                quantity: 4,
+              },
+              repulse: {
+                distance: 200,
+                duration: 0.4,
+              },
+            },
+          },
+          particles: {
+            color: {
+              value: "#FFD700",
+            },
+            links: {
+              color: "#FFD700",
+              distance: 150,
+              enable: true,
+              opacity: 0.5,
+              width: 1,
+            },
+            move: {
+              direction: "none",
+              enable: true,
+              outModes: {
+                default: "bounce",
+              },
+              random: false,
+              speed: 2,
+              straight: false,
+            },
+            number: {
+              density: {
+                enable: true,
+                area: 800,
+              },
+              value: 80,
+            },
+            opacity: {
+              value: 0.5,
+            },
+            shape: {
+              type: "circle",
+            },
+            size: {
+              value: { min: 1, max: 5 },
+            },
+          },
+          detectRetina: true,
+        }}
+      />
 
-      {/* Partículas flutuantes - Escondidas em dispositivos móveis para melhor performance */}
-      <div className="hidden md:block">
-        {Array.from({ length: 20 }).map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-primary-gold/30 rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              opacity: [0, 1, 0],
-              scale: [0, 1, 0]
-            }}
-            transition={{
-              duration: Math.random() * 3 + 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-              ease: "easeInOut"
-            }}
-          />
-        ))}
-      </div>
-
-      <div className="container mx-auto">
+      {/* Conteúdo */}
+      <div className="container mx-auto relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
-          {/* Conteúdo */}
+          {/* Texto e Botões */}
           <motion.div 
             className="w-full lg:w-1/2 text-center lg:text-left"
             initial={{ opacity: 0, x: -50 }}
@@ -112,7 +167,7 @@ const Hero = () => {
               perspective: 1000
             }}
           >
-            {/* Círculos decorativos animados - Ajustados para responsividade */}
+            {/* Círculos decorativos animados */}
             <motion.div
               className="absolute w-[280px] sm:w-[380px] lg:w-[520px] h-[280px] sm:h-[380px] lg:h-[520px] border-4 border-primary-gold/20 rounded-full"
               animate={{ 
@@ -152,7 +207,7 @@ const Hero = () => {
                 {/* Gradiente de sobreposição */}
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-dark-blue/80 z-10" />
                 
-                {/* Código animado de fundo - Escondido em dispositivos móveis */}
+                {/* Código animado de fundo */}
                 <motion.div
                   className="absolute inset-0 opacity-20 text-primary-gold overflow-hidden hidden md:block"
                   initial={{ y: 0 }}
@@ -205,30 +260,6 @@ const Hero = () => {
                 />
               </motion.div>
             </motion.div>
-
-            {/* Partículas ao redor da imagem - Escondidas em dispositivos móveis */}
-            <div className="hidden md:block">
-              {Array.from({ length: 8 }).map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute w-2 h-2 bg-primary-gold/40 rounded-full"
-                  style={{
-                    left: `${50 + 35 * Math.cos(2 * Math.PI * i / 8)}%`,
-                    top: `${50 + 35 * Math.sin(2 * Math.PI * i / 8)}%`,
-                  }}
-                  animate={{
-                    scale: [1, 1.5, 1],
-                    opacity: [0.4, 0.8, 0.4],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    delay: i * 0.2,
-                    ease: "easeInOut"
-                  }}
-                />
-              ))}
-            </div>
           </motion.div>
         </div>
       </div>
