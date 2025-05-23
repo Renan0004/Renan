@@ -158,7 +158,7 @@ const Contact = () => {
 
             {/* LinkedIn */}
             <a
-              href="https://www.linkedin.com/in/renan-silva-5ab695271/"
+              href="https://www.linkedin.com/in/renan-dirceu-de-almeida-16645025a"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center p-6 bg-light-blue/10 rounded-xl hover:bg-light-blue/20 transition-all duration-300 group"
