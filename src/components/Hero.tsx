@@ -161,7 +161,15 @@ const Hero = () => {
                 >
                   {Array(20).fill('').map((_, i) => (
                     <div key={i} className="whitespace-nowrap font-mono text-xs sm:text-sm">
-                      const dev = {'{'}name: "Renan", skills: ["React", "Node", "TypeScript"]{'}'}
+                      const dev = {'{'}
+                        name: "Renan",
+                        skills: {'{'}
+                          backend: ["Node.js", "Express", "TypeScript", "Python", "PHP", "Prisma"],
+                          frontend: ["React", "Next.js", "HTML5", "CSS3", "JavaScript", "Tailwind CSS"],
+                          database: ["MongoDB", "PostgreSQL", "MySQL", "Firebase"],
+                          devops: ["Git", "Docker", "Postman"]
+                        {'}'}
+                      {'}'}
                     </div>
                   ))}
                 </motion.div>
