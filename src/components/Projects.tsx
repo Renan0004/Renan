@@ -1,13 +1,5 @@
 import { motion } from 'framer-motion'
 
-// Importando as imagens
-import imgSiteDentista2 from '@/assets/images/SiteDentista2.jpeg'
-import imgSiteDentista from '@/assets/images/SiteDentista.jpeg'
-import imgSiteBarbearia from '@/assets/images/SiteBarbearia.jpeg'
-import imgSiteSalao from '@/assets/images/SiteSalao.jpeg'
-import imgFinControl from '@/assets/images/Fincontrol.jpeg'
-import imgChatBot from '@/assets/images/chatbot.jpg'
-
 interface Project {
   id: number;
   title: string;
@@ -23,7 +15,7 @@ const projects: Project[] = [
     id: 1,
     title: "Site de Odontologia",
     description: "Desenvolvimento completo de site institucional com sistema de agendamento integrado e painel administrativo personalizado.",
-    image: imgSiteDentista2,
+    image: "/images/SiteDentista2.jpeg",
     tech: ["React", "TypeScript", "TailwindCSS", "Node.js", "MongoDB"],
     featured: true,
     category: "Desenvolvimento Web Full Stack"
@@ -32,7 +24,7 @@ const projects: Project[] = [
     id: 2,
     title: "Site de Odontologia",
     description: "Landing page otimizada para conversão, integrada com WhatsApp e sistema de CRM para gestão de leads.",
-    image: imgSiteDentista,
+    image: "/images/SiteDentista.jpeg",
     tech: ["React", "Next.js", "TailwindCSS", "API WhatsApp"],
     featured: true,
     category: "Marketing Digital"
@@ -41,7 +33,7 @@ const projects: Project[] = [
     id: 4, 
     title: "Barbearia",
     description: "Sistema completo de gestão para barbearia com agendamento online, controle financeiro e fidelização de clientes.",
-    image: imgSiteBarbearia,
+    image: "/images/SiteBarbearia.jpeg",
     tech: ["React", "TypeScript", "Node.js", "PostgreSQL"],
     category: "Sistemas de Gestão"
   },
@@ -49,7 +41,7 @@ const projects: Project[] = [
     id: 5,
     title: "Salão de Beleza",
     description: "Landing page moderna e responsiva com sistema de agendamento integrado ao WhatsApp, Google Maps e gestão de redes sociais.",
-    image: imgSiteSalao,
+    image: "/images/SiteSalao.jpeg",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     featured: true,
     category: "Landing Page"
@@ -58,7 +50,7 @@ const projects: Project[] = [
     id: 6,
     title: "Dev_ChatBot",
     description: "Automação completa de atendimento via WhatsApp com IA, integração de pagamentos e sistema de agendamento.",
-    image: imgChatBot,
+    image: "/images/chatbot.jpg",
     tech: ["Node.js", "WhatsApp API", "OpenAI", "MongoDB"],
     category: "Automação"
   },
@@ -66,7 +58,7 @@ const projects: Project[] = [
     id: 7,
     title: "FinControl",
     description: "Aplicação web para gestão financeira com relatórios personalizados e integração com APIs bancárias.",
-    image: imgFinControl,
+    image: "/images/Fincontrol.jpeg",
     tech: ["Node.js", "Express", "MongoDB", "React"],
     category: "Aplicações Web"
   }
