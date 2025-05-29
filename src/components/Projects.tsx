@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion'
 
 // Importando as imagens
-import imgSiteDentista2 from '../assets/images/SiteDentista2.jpeg'
-import imgSiteDentista from '../assets/images/SiteDentista.jpeg'
-import imgSiteBarbearia from '../assets/images/SiteBarbearia.jpeg'
-import imgSiteSalao from '../assets/images/SiteSalao.jpeg'
-import imgFinControl from '../assets/images/Fincontrol.jpeg'
-import imgChatBot from '../assets/images/chatbot.jpg'
+import imgSiteDentista2 from '@/assets/images/SiteDentista2.jpeg'
+import imgSiteDentista from '@/assets/images/SiteDentista.jpeg'
+import imgSiteBarbearia from '@/assets/images/SiteBarbearia.jpeg'
+import imgSiteSalao from '@/assets/images/SiteSalao.jpeg'
+import imgFinControl from '@/assets/images/Fincontrol.jpeg'
+import imgChatBot from '@/assets/images/chatbot.jpg'
 
 interface Project {
   id: number;
