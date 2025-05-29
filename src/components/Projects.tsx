@@ -1,12 +1,10 @@
 import { motion } from 'framer-motion'
-import { FaGithub } from 'react-icons/fa'
 
 // Importando as imagens
-import imgOdontoCot from '../assets/images/OdontoCot.jpeg'
-import imgAnaLinhares from '../assets/images/AnaLinhares.JPG'
-import imgLais from '../assets/images/Lais.jpeg'
-import imgBarbearia from '../assets/images/barbearia.jpeg'
-import imgSalaoLirio from '../assets/images/SalaoLirio.jpeg'
+import imgSiteDentista2 from '../assets/images/SiteDentista2.jpeg'
+import imgSiteDentista from '../assets/images/SiteDentista.jpeg'
+import imgSiteBarbearia from '../assets/images/SiteBarbearia.jpeg'
+import imgSiteSalao from '../assets/images/SiteSalao.jpeg'
 import imgFinControl from '../assets/images/Fincontrol.jpeg'
 import imgChatBot from '../assets/images/chatbot.jpg'
 
@@ -16,7 +14,6 @@ interface Project {
   description: string;
   image: string;
   tech: string[];
-  link: string;
   featured?: boolean;
   category?: string;
 }
@@ -24,50 +21,36 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: "OdontoCot",
+    title: "Site de Odontologia",
     description: "Desenvolvimento completo de site institucional com sistema de agendamento integrado e painel administrativo personalizado.",
-    image: imgOdontoCot,
+    image: imgSiteDentista2,
     tech: ["React", "TypeScript", "TailwindCSS", "Node.js", "MongoDB"],
-    link: "https://github.com/Renan0004/Site-OdontoCot",
     featured: true,
     category: "Desenvolvimento Web Full Stack"
   },
   {
     id: 2,
-    title: "Ana Linhares Odontologia",
+    title: "Site de Odontologia",
     description: "Landing page otimizada para conversão, integrada com WhatsApp e sistema de CRM para gestão de leads.",
-    image: imgAnaLinhares,
+    image: imgSiteDentista,
     tech: ["React", "Next.js", "TailwindCSS", "API WhatsApp"],
-    link: "https://github.com/Renan0004/Site-Odontologia-DrAna",
     featured: true,
     category: "Marketing Digital"
   },
   {
-    id: 3,
-    title: "Dra. Laís Odontologia",
-    description: "Plataforma completa com blog, área de membros e integração com sistema de pagamentos para cursos online.",
-    image: imgLais,
-    tech: ["React", "TypeScript", "Node.js", "Stripe", "PostgreSQL"],
-    link: "https://github.com/Renan0004/Site-Odontologia-DraLais",
-    featured: true,
-    category: "Plataforma E-learning"
-  },
-  {
-    id: 4,
-    title: "Barbearia Lirio",
+    id: 4, 
+    title: "Barbearia",
     description: "Sistema completo de gestão para barbearia com agendamento online, controle financeiro e fidelização de clientes.",
-    image: imgBarbearia,
+    image: imgSiteBarbearia,
     tech: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-    link: "https://github.com/Renan0004/Barbearia-Lirio",
     category: "Sistemas de Gestão"
   },
   {
     id: 5,
-    title: "Salão Lírio",
+    title: "Salão de Beleza",
     description: "Landing page moderna e responsiva com sistema de agendamento integrado ao WhatsApp, Google Maps e gestão de redes sociais.",
-    image: imgSalaoLirio,
+    image: imgSiteSalao,
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    link: "https://github.com/Renan0004/SalaoLirio",
     featured: true,
     category: "Landing Page"
   },
@@ -77,7 +60,6 @@ const projects: Project[] = [
     description: "Automação completa de atendimento via WhatsApp com IA, integração de pagamentos e sistema de agendamento.",
     image: imgChatBot,
     tech: ["Node.js", "WhatsApp API", "OpenAI", "MongoDB"],
-    link: "https://github.com/Renan0004/",
     category: "Automação"
   },
   {
@@ -86,7 +68,6 @@ const projects: Project[] = [
     description: "Aplicação web para gestão financeira com relatórios personalizados e integração com APIs bancárias.",
     image: imgFinControl,
     tech: ["Node.js", "Express", "MongoDB", "React"],
-    link: "https://github.com/Renan0004/FinControl",
     category: "Aplicações Web"
   }
 ]
@@ -141,20 +122,10 @@ const Projects = () => {
                   </span>
                 </div>
 
-                {/* Título e Links */}
-                <div className="flex justify-between items-start mb-3">
-                  <h3 className="text-xl font-bold text-white group-hover:text-primary-gold transition-colors duration-300">
-                    {project.title}
-                  </h3>
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary-gold hover:text-secondary-gold transition-colors duration-300"
-                  >
-                    <FaGithub className="text-2xl" />
-                  </a>
-                </div>
+                {/* Título */}
+                <h3 className="text-xl font-bold text-white group-hover:text-primary-gold transition-colors duration-300 mb-3">
+                  {project.title}
+                </h3>
 
                 {/* Descrição */}
                 <p className="text-gray-300 mb-4 line-clamp-2 text-sm sm:text-base">
