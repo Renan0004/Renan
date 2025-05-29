@@ -1,10 +1,19 @@
 import { motion } from 'framer-motion'
+import Image from 'next/image'
+
+// Importando as imagens
+import imgSiteDentista2 from '../../public/images/SiteDentista2.jpeg'
+import imgSiteDentista from '../../public/images/SiteDentista.jpeg'
+import imgSiteBarbearia from '../../public/images/SiteBarbearia.jpeg'
+import imgSiteSalao from '../../public/images/SiteSalao.jpeg'
+import imgFinControl from '../../public/images/Fincontrol.jpeg'
+import imgChatBot from '../../public/images/chatbot.jpg'
 
 interface Project {
   id: number;
   title: string;
   description: string;
-  image: string;
+  image: any; // Alterado para aceitar StaticImageData
   tech: string[];
   featured?: boolean;
   category?: string;
@@ -15,7 +24,7 @@ const projects: Project[] = [
     id: 1,
     title: "Site de Odontologia",
     description: "Desenvolvimento completo de site institucional com sistema de agendamento integrado e painel administrativo personalizado.",
-    image: "/images/SiteDentista2.jpeg",
+    image: imgSiteDentista2,
     tech: ["React", "TypeScript", "TailwindCSS", "Node.js", "MongoDB"],
     featured: true,
     category: "Desenvolvimento Web Full Stack"
@@ -24,7 +33,7 @@ const projects: Project[] = [
     id: 2,
     title: "Site de Odontologia",
     description: "Landing page otimizada para conversão, integrada com WhatsApp e sistema de CRM para gestão de leads.",
-    image: "/images/SiteDentista.jpeg",
+    image: imgSiteDentista,
     tech: ["React", "Next.js", "TailwindCSS", "API WhatsApp"],
     featured: true,
     category: "Marketing Digital"
@@ -33,7 +42,7 @@ const projects: Project[] = [
     id: 4, 
     title: "Barbearia",
     description: "Sistema completo de gestão para barbearia com agendamento online, controle financeiro e fidelização de clientes.",
-    image: "/images/SiteBarbearia.jpeg",
+    image: imgSiteBarbearia,
     tech: ["React", "TypeScript", "Node.js", "PostgreSQL"],
     category: "Sistemas de Gestão"
   },
@@ -41,7 +50,7 @@ const projects: Project[] = [
     id: 5,
     title: "Salão de Beleza",
     description: "Landing page moderna e responsiva com sistema de agendamento integrado ao WhatsApp, Google Maps e gestão de redes sociais.",
-    image: "/images/SiteSalao.jpeg",
+    image: imgSiteSalao,
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     featured: true,
     category: "Landing Page"
@@ -50,7 +59,7 @@ const projects: Project[] = [
     id: 6,
     title: "Dev_ChatBot",
     description: "Automação completa de atendimento via WhatsApp com IA, integração de pagamentos e sistema de agendamento.",
-    image: "/images/chatbot.jpg",
+    image: imgChatBot,
     tech: ["Node.js", "WhatsApp API", "OpenAI", "MongoDB"],
     category: "Automação"
   },
@@ -58,7 +67,7 @@ const projects: Project[] = [
     id: 7,
     title: "FinControl",
     description: "Aplicação web para gestão financeira com relatórios personalizados e integração com APIs bancárias.",
-    image: "/images/Fincontrol.jpeg",
+    image: imgFinControl,
     tech: ["Node.js", "Express", "MongoDB", "React"],
     category: "Aplicações Web"
   }
@@ -97,10 +106,13 @@ const Projects = () => {
             >
               {/* Imagem do Projeto */}
               <div className="relative h-48 sm:h-56 overflow-hidden">
-                <img
+                <Image
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                  fill
+                  className="object-cover transform group-hover:scale-110 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  priority={index < 3}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-blue/80 to-transparent opacity-60" />
               </div>
