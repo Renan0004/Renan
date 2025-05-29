@@ -31,18 +31,18 @@ const About = () => {
             <ul className="space-y-4">
               <li>
                 <h4 className="text-secondary-gold font-medium">Desenvolvedor Full Stack</h4>
-                <p className="text-gray-400">Freelancer | 2022 - Atual</p>
                 <p className="text-gray-300 mt-2">
-                  Desenvolvimento de aplicações web completas, desde o backend até o frontend, 
-                  com foco em performance e experiência do usuário.
+                  Especialista em desenvolvimento web moderno, criando soluções completas 
+                  que unem robustez no backend com experiências envolventes no frontend. 
+                  Foco em arquiteturas escaláveis e práticas de código limpo.
                 </p>
               </li>
               <li>
-                <h4 className="text-secondary-gold font-medium">Desenvolvedor Back-End</h4>
-                <p className="text-gray-400">Projetos Independentes | 2021 - 2022</p>
+                <h4 className="text-secondary-gold font-medium">Arquiteto de Soluções</h4>
                 <p className="text-gray-300 mt-2">
-                  Criação de APIs RESTful, integração com serviços externos e 
-                  desenvolvimento de sistemas escaláveis.
+                  Experiência em projetar e implementar sistemas distribuídos, 
+                  integrações com APIs externas e otimização de performance. 
+                  Comprometido com segurança e qualidade de código.
                 </p>
               </li>
             </ul>
@@ -67,7 +67,8 @@ const About = () => {
             </p>
             <p className="text-gray-300">
               Comprometido com aprendizado contínuo e sempre buscando novos desafios 
-              para expandir meus conhecimentos e habilidades técnicas.
+              para expandir meus conhecimentos e habilidades técnicas. Focado em 
+              transformar ideias em soluções inovadoras.
             </p>
           </motion.div>
 
