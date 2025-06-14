@@ -17,7 +17,7 @@ const Education = () => {
       type: 'graduation',
       title: 'Tecnologia (CST), técnico em desenvolvimento de sistemas',
       institution: 'Serviço Nacional de Aprendizagem Industrial - SENAI',
-      period: 'jul de 2023 - dez de 2024',
+      period: 'jul de 2022 - dez de 2023',
       description: 'Desenvolvimento de sistema integrado para gestão de festas de aniversário, implementação de APIs externas, criação de interfaces responsivas, modelagem de banco de dados, programação em C#.'
     },
     {

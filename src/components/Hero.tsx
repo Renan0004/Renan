@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import eu from '../assets/images/Eu.png'
+import eu from '../assets/images/eu.jpeg'
 import { useEffect, useState } from 'react'
 
 const Hero = () => {
@@ -145,7 +145,7 @@ const Hero = () => {
                 <motion.img
                   src={eu}
                   alt="Renan Desenvolvedor"
-                  className="w-full h-full object-cover object-center relative z-0"
+                  className="w-full h-full object-cover object-top rounded-full border-4 border-primary-gold shadow-lg hover:scale-105 transition-transform duration-300"
                   initial={{ scale: 1 }}
                   animate={{
                     scale: [1, 1.02, 1],

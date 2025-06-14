@@ -61,7 +61,7 @@ const About = () => {
               <h3 className="text-xl font-bold text-primary-gold">Perfil</h3>
             </div>
             <p className="text-gray-300 mb-4">
-              Desenvolvedor apaixonado por tecnologia com mais de 2 anos de experiência 
+              Desenvolvedor apaixonado por tecnologia com mais de 3 anos de experiência 
               em desenvolvimento de software. Especializado em criar soluções eficientes 
               e escaláveis usando as melhores práticas do mercado.
             </p>
