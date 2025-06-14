@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import eu from '../assets/images/eu.jpeg'
+import eu from '../assets/images/eu.png'
 import { useEffect, useState } from 'react'
 
 const Hero = () => {
