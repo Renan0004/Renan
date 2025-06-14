@@ -131,7 +131,7 @@ const Hero = () => {
                       const dev = {'{'}
                         name: "Renan",
                         skills: {'{'}
-                          backend: ["Node.js", "Express", "TypeScript", "Python", "PHP", "Prisma"],
+                          backend: ["Node.js", "Express", "TypeScript", "Python", "Prisma"],
                           frontend: ["React", "Next.js", "HTML5", "CSS3", "JavaScript", "Tailwind CSS"],
                           database: ["MongoDB", "PostgreSQL", "MySQL", "Firebase"],
                           devops: ["Git", "Docker", "Postman"]
