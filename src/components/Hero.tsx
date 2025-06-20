@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import eu from '../assets/images/eu.png'
 
 const Hero = () => {
@@ -7,37 +6,25 @@ const Hero = () => {
       <div className="container mx-auto relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
           {/* Conteúdo */}
-          <motion.div 
+          <div 
             className="w-full lg:w-1/2 text-center lg:text-left"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
           >
-            <motion.h1 
+            <h1 
               className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
             >
               <span className="bg-gradient-to-r from-primary-gold to-secondary-gold bg-clip-text text-transparent">
                 Desenvolvedor Full Stack
               </span>
-            </motion.h1>
+            </h1>
             
-            <motion.p 
+            <p 
               className="text-gray-300 text-base sm:text-lg lg:text-xl mb-6 sm:mb-8 max-w-2xl mx-auto lg:mx-0"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
             >
               Transformando ideias em experiências digitais memoráveis através de código limpo e design inovador.
-            </motion.p>
+            </p>
 
-            <motion.div 
+            <div 
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
             >
               <a
                 href="#contact"
@@ -51,15 +38,12 @@ const Hero = () => {
               >
                 Ver Projetos
               </a>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           {/* Imagem simplificada e bem posicionada */}
-          <motion.div 
+          <div 
             className="w-full lg:w-1/2 flex justify-center items-center relative mt-12 lg:mt-0"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
           >
             {/* Círculo decorativo simples */}
             <div className="absolute w-[280px] sm:w-[380px] lg:w-[480px] h-[280px] sm:h-[380px] lg:h-[480px] border-4 border-primary-gold/20 rounded-full" />
@@ -81,7 +65,7 @@ const Hero = () => {
                 <div className="absolute inset-0 rounded-full border-2 border-primary-gold/50 z-30" />
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
