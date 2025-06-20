@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import eu from '../assets/images/eu.png'
-import { useEffect, useState } from 'react'
 
 const Hero = () => {
   return (
@@ -89,4 +88,4 @@ const Hero = () => {
   )
 }
 
-export default Hero 
+export default Hero
