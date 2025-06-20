@@ -1,4 +1,4 @@
-import eu from '../assets/images/eu.png'
+import eu from '../assets/images/eu.jpeg'
 
 const Hero = () => {
   return (
