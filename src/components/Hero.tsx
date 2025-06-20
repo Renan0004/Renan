@@ -3,20 +3,6 @@ import eu from '../assets/images/eu.png'
 import { useEffect, useState } from 'react'
 
 const Hero = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-
-  useEffect(() => {
-    const handleMouseMove = (e: globalThis.MouseEvent) => {
-      setMousePosition({
-        x: (e.clientX - window.innerWidth / 2) / 50,
-        y: (e.clientY - window.innerHeight / 2) / 50
-      })
-    }
-
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [])
-
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center bg-dark-blue relative overflow-hidden px-4 py-12 sm:px-6 lg:px-8">
       <div className="container mx-auto relative z-10">
@@ -69,132 +55,32 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Imagem com efeitos avançados */}
+          {/* Imagem simplificada e bem posicionada */}
           <motion.div 
             className="w-full lg:w-1/2 flex justify-center items-center relative mt-12 lg:mt-0"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
-            style={{
-              perspective: 1000
-            }}
           >
-            {/* Círculos decorativos animados */}
-            <motion.div
-              className="absolute w-[280px] sm:w-[380px] lg:w-[520px] h-[280px] sm:h-[380px] lg:h-[520px] border-4 border-primary-gold/20 rounded-full"
-              animate={{ 
-                rotate: 360,
-                scale: [1, 1.05, 1]
-              }}
-              transition={{ 
-                rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-                scale: { duration: 4, repeat: Infinity, ease: "easeInOut" }
-              }}
-            />
-            <motion.div
-              className="absolute w-[260px] sm:w-[360px] lg:w-[480px] h-[260px] sm:h-[360px] lg:h-[480px] border-4 border-primary-gold/10 rounded-full"
-              animate={{ 
-                rotate: -360,
-                scale: [1.05, 1, 1.05]
-              }}
-              transition={{ 
-                rotate: { duration: 25, repeat: Infinity, ease: "linear" },
-                scale: { duration: 4, repeat: Infinity, ease: "easeInOut" }
-              }}
-            />
+            {/* Círculo decorativo simples */}
+            <div className="absolute w-[280px] sm:w-[380px] lg:w-[480px] h-[280px] sm:h-[380px] lg:h-[480px] border-4 border-primary-gold/20 rounded-full" />
             
-            {/* Container da imagem com efeitos 3D */}
-            <motion.div 
-              className="relative w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] lg:w-[450px] lg:h-[450px]"
-              style={{
-                transform: `rotateX(${mousePosition.y}deg) rotateY(${mousePosition.x}deg)`
-              }}
-              transition={{ type: "spring", stiffness: 100 }}
-            >
-              <motion.div
-                className="w-full h-full rounded-3xl overflow-hidden relative group"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-              >
-                {/* Gradiente de sobreposição */}
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-dark-blue/80 z-10" />
+            {/* Container da imagem */}
+            <div className="relative w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] lg:w-[450px] lg:h-[450px]">
+              <div className="w-full h-full rounded-full overflow-hidden relative">
+                {/* Gradiente de sobreposição suave */}
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-dark-blue/50 z-10" />
                 
-                {/* Código animado de fundo */}
-                <motion.div
-                  className="absolute inset-0 opacity-20 text-primary-gold overflow-hidden hidden md:block"
-                  initial={{ y: 0 }}
-                  animate={{ y: [-500, 0] }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                >
-                  {Array(20).fill('').map((_, i) => (
-                    <div key={i} className="whitespace-nowrap font-mono text-xs sm:text-sm">
-                      const dev = {'{'}
-                        name: "Renan",
-                        skills: {'{'}
-                          backend: ["Node.js", "Express", "TypeScript", "Python", "Prisma"],
-                          frontend: ["React", "Next.js", "HTML5", "CSS3", "JavaScript", "Tailwind CSS"],
-                          database: ["MongoDB", "PostgreSQL", "MySQL", "Firebase"],
-                          devops: ["Git", "Docker", "Postman"]
-                        {'}'}
-                      {'}'}
-                    </div>
-                  ))}
-                </motion.div>
-                
-                {/* Imagem principal com efeitos */}
-                <motion.img
+                {/* Imagem principal */}
+                <img
                   src={eu}
                   alt="Renan Desenvolvedor"
-                  className="w-full h-full object-cover object-top rounded-full border-4 border-primary-gold shadow-lg hover:scale-105 transition-transform duration-300"
-                  initial={{ scale: 1 }}
-                  animate={{
-                    scale: [1, 1.02, 1],
-                    y: [0, -5, 0]
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
+                  className="w-full h-full object-cover object-top rounded-full border-4 border-primary-gold shadow-lg"
                 />
-
-                {/* Borda com efeito suave */}
-                <motion.div
-                  className="absolute inset-0 rounded-3xl border-2 border-white/10 z-30"
-                  animate={{
-                    opacity: [0.1, 0.2, 0.1]
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                />
-              </motion.div>
-            </motion.div>
-
-            {/* Partículas decorativas */}
-            <div className="hidden md:block">
-              {Array.from({ length: 8 }).map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute w-2 h-2 bg-primary-gold/40 rounded-full"
-                  style={{
-                    left: `${50 + 35 * Math.cos(2 * Math.PI * i / 8)}%`,
-                    top: `${50 + 35 * Math.sin(2 * Math.PI * i / 8)}%`,
-                  }}
-                  animate={{
-                    scale: [1, 1.5, 1],
-                    opacity: [0.4, 0.8, 0.4],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    delay: i * 0.2,
-                    ease: "easeInOut"
-                  }}
-                />
-              ))}
+                
+                {/* Borda elegante */}
+                <div className="absolute inset-0 rounded-full border-2 border-primary-gold/50 z-30" />
+              </div>
             </div>
           </motion.div>
         </div>
