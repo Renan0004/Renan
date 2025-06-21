@@ -14,13 +14,6 @@ const Footer = () => {
     })
   }
 
-  const scrollToSection = (id: string) => {
-    const element = document.querySelector(id)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-
   useEffect(() => {
     const handleScroll = () => {
       setShowScrollButton(window.scrollY > 300)
@@ -217,18 +210,21 @@ const Footer = () => {
               <p className="text-gray-400 text-sm mb-4 md:mb-0">
                 © {new Date().getFullYear()} Renan Dirceu. Todos os direitos reservados.
               </p>
-              <Link
-                to="contact"
-                spy={true}
-                smooth={true}
-                offset={-100}
-                duration={800}
-                className="inline-flex items-center gap-2 bg-primary-gold/10 text-primary-gold px-6 py-2 rounded-full hover:bg-primary-gold hover:text-dark-blue transition-all duration-300 cursor-pointer"
+              <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Iniciar Projeto
-              </Link>
+                <Link
+                  to="contact"
+                  spy={true}
+                  smooth={true}
+                  offset={-100}
+                  duration={800}
+                  className="inline-flex items-center gap-2 bg-primary-gold/10 text-primary-gold px-6 py-2 rounded-full hover:bg-primary-gold hover:text-dark-blue transition-all duration-300 cursor-pointer"
+                >
+                  Iniciar Projeto
+                </Link>
+              </motion.div>
             </div>
           </div>
         </div>
