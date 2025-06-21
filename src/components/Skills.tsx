@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { FaCode, FaServer, FaDatabase, FaTools, FaGitAlt, FaSitemap } from 'react-icons/fa'
+import { FaCode, FaServer, FaDatabase, FaTools, FaGitAlt } from 'react-icons/fa'
 import { useState } from 'react'
 
 const skillCategories = [
