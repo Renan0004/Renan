@@ -1,92 +1,161 @@
 import { motion } from 'framer-motion'
-import { FaCode, FaLayerGroup, FaServer, FaTools, FaCloud, FaGit } from 'react-icons/fa'
+import { FaCode, FaServer, FaDatabase, FaTools, FaGitAlt, FaSitemap } from 'react-icons/fa'
+import { useState } from 'react'
 
-interface SkillCategory {
-  title: string;
-  icon: JSX.Element;
-  skills: string[];
-}
-
-const skillCategories: SkillCategory[] = [
+const skillCategories = [
   {
     title: "Linguagens e Lógica de Programação",
     icon: <FaCode className="text-2xl" />,
+    description: "Desenvolvimento de aplicações robustas e escaláveis",
     skills: [
-      "Java",
-      "C#.NET",
-      "Python",
-      "TypeScript",
-      "Node.js",
-      "POO (Programação Orientada a Objetos)"
+      {
+        name: "JavaScript/TypeScript",
+        description: "React, Next.js, Node.js, Express, Styled Components, TailwindCSS, Framer Motion"
+      },
+      {
+        name: "Java",
+        description: "Spring Boot, Spring Security, JPA/Hibernate, Maven, JUnit"
+      },
+      {
+        name: "C#.NET",
+        description: ".NET Core, Entity Framework, ASP.NET MVC, LINQ"
+      },
+      {
+        name: "Python",
+        description: "Django, FastAPI, Pandas, NumPy, Selenium"
+      }
     ]
   },
   {
-    title: "Frameworks e Bibliotecas",
-    icon: <FaLayerGroup className="text-2xl" />,
+    title: "Frontend",
+    icon: <FaServer className="text-2xl" />,
+    description: "Desenvolvimento de interfaces modernas e responsivas",
     skills: [
-      "Spring (Boot, Web, Data JPA, Security, Cloud, Netflix)",
-      "Hibernate",
-      "Entity Framework",
-      "React.js",
-      "React Native",
-      "Next.js"
+      {
+        name: "React Ecosystem",
+        description: "React.js, Context API, Redux, React Query, React Hook Form"
+      },
+      {
+        name: "Next.js",
+        description: "App Router, Server Components, API Routes, Static/Dynamic Rendering"
+      },
+      {
+        name: "Estilização",
+        description: "TailwindCSS, Styled Components, SASS, CSS Modules, Material-UI"
+      },
+      {
+        name: "UI/UX",
+        description: "Framer Motion, Radix UI, Headless UI, Storybook"
+      }
+    ]
+  },
+  {
+    title: "Backend",
+    icon: <FaServer className="text-2xl" />,
+    description: "Desenvolvimento de APIs e serviços",
+    skills: [
+      {
+        name: "Node.js",
+        description: "Express, NestJS, Prisma, TypeORM, JWT Authentication"
+      },
+      {
+        name: "Spring Boot",
+        description: "Spring Security, Spring Data JPA, Spring Cloud, Microservices"
+      },
+      {
+        name: "APIs",
+        description: "REST, GraphQL, WebSockets, Swagger/OpenAPI"
+      }
     ]
   },
   {
     title: "Banco de Dados",
-    icon: <FaServer className="text-2xl" />,
+    icon: <FaDatabase className="text-2xl" />,
+    description: "Gerenciamento e modelagem de dados",
     skills: [
-      "SQL (MySQL, SQL Server, PostgreSQL)",
-      "NoSQL (MongoDB)"
+      {
+        name: "Relacionais",
+        description: "PostgreSQL, MySQL, SQL Server, Modelagem de Dados"
+      },
+      {
+        name: "NoSQL",
+        description: "MongoDB, Redis, Firebase Realtime Database"
+      },
+      {
+        name: "ORMs",
+        description: "Prisma, TypeORM, Sequelize, Entity Framework"
+      }
     ]
   },
   {
-    title: "Infraestrutura, DevOps e Cloud",
-    icon: <FaCloud className="text-2xl" />,
-    skills: [
-      "Docker",
-      "AWS (EC2, ECS, API Gateway, S3, SNS, SQS, Lambda, CloudWatch, DynamoDB, RDS, ECR, WAF, IAM)",
-      "CI/CD com GitHub Actions",
-      "Terraform",
-      "Datadog"
-    ]
-  },
-  {
-    title: "Ferramentas e Versionamento",
-    icon: <FaGit className="text-2xl" />,
-    skills: [
-      "Git",
-      "GitHub",
-      "BitBucket"
-    ]
-  },
-  {
-    title: "Metodologias Ágeis e Gestão",
+    title: "DevOps & Cloud",
     icon: <FaTools className="text-2xl" />,
+    description: "Infraestrutura e deploy de aplicações",
     skills: [
-      "Scrum",
-      "JIRA"
+      {
+        name: "Containerização",
+        description: "Docker, Docker Compose, Kubernetes básico"
+      },
+      {
+        name: "Cloud Services",
+        description: "AWS (EC2, S3, RDS, Lambda), Vercel, Railway"
+      },
+      {
+        name: "CI/CD",
+        description: "GitHub Actions, AWS CodePipeline, Jenkins"
+      }
+    ]
+  },
+  {
+    title: "Ferramentas & Práticas",
+    icon: <FaGitAlt className="text-2xl" />,
+    description: "Desenvolvimento e colaboração",
+    skills: [
+      {
+        name: "Versionamento",
+        description: "Git, GitHub, GitFlow, Conventional Commits"
+      },
+      {
+        name: "Testing",
+        description: "Jest, React Testing Library, JUnit, Cypress"
+      },
+      {
+        name: "Metodologias",
+        description: "Scrum, Kanban, Code Review, Clean Code"
+      },
+      {
+        name: "Ferramentas",
+        description: "JIRA, Figma, Postman, VS Code, IntelliJ"
+      }
     ]
   }
 ]
 
 const Skills = () => {
+  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
+
   return (
-    <section id="skills" className="py-16 sm:py-20 bg-light-blue">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="py-16 sm:py-20 bg-dark-blue relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary-gold rounded-full filter blur-[100px]" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary-gold rounded-full filter blur-[100px]" />
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-primary-gold to-secondary-gold bg-clip-text text-transparent">
               Tecnologias e Habilidades
             </span>
           </h2>
-          <p className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto">
+          <p className="text-gray-300 text-lg max-w-3xl mx-auto">
             Conjunto de tecnologias e habilidades que domino e utilizo para desenvolver soluções robustas e escaláveis.
           </p>
         </motion.div>
@@ -98,8 +167,9 @@ const Skills = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
-              viewport={{ once: true }}
-              className="bg-dark-blue/50 rounded-xl p-6 hover:bg-dark-blue/60 transition-all duration-300"
+              viewport={{ once: false }}
+              className="bg-dark-blue/30 rounded-xl p-6 hover:bg-dark-blue/40 transition-all duration-300 
+                border border-primary-gold/10 hover:border-primary-gold/30 hover:shadow-lg hover:shadow-primary-gold/5"
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2 bg-primary-gold/10 rounded-lg text-primary-gold">
@@ -110,20 +180,37 @@ const Skills = () => {
                 </h3>
               </div>
               
-              <div className="space-y-2">
-                {category.skills.map((skill, skillIndex) => (
+              <p className="text-gray-400 text-sm mb-4">
+                {category.description}
+              </p>
+
+              <div className="space-y-3">
+                {category.skills.map((skill) => (
                   <motion.div
-                    key={skill}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: (categoryIndex * 0.1) + (skillIndex * 0.05) }}
-                    viewport={{ once: true }}
-                    className="flex items-center gap-2"
+                    key={skill.name}
+                    className="relative"
+                    onMouseEnter={() => setHoveredSkill(skill.name)}
+                    onMouseLeave={() => setHoveredSkill(null)}
                   >
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary-gold/50" />
-                    <span className="text-gray-300 text-sm sm:text-base">
-                      {skill}
-                    </span>
+                    <div className="flex items-center justify-between p-2 rounded-lg bg-dark-blue/20 
+                      hover:bg-dark-blue/30 transition-all duration-300 group cursor-help">
+                      <span className="text-white group-hover:text-primary-gold transition-colors duration-300">
+                        {skill.name}
+                      </span>
+                    </div>
+
+                    {hoveredSkill === skill.name && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="absolute z-10 w-64 p-3 mt-2 bg-dark-blue/95 backdrop-blur-sm rounded-lg 
+                          shadow-lg border border-primary-gold/20"
+                      >
+                        <p className="text-sm text-gray-300">
+                          {skill.description}
+                        </p>
+                      </motion.div>
+                    )}
                   </motion.div>
                 ))}
               </div>

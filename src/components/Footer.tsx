@@ -1,251 +1,226 @@
-import { FaGithub, FaLinkedin, FaWhatsapp, FaEnvelope, FaArrowUp, FaMapMarkerAlt, FaCode } from 'react-icons/fa'
-import { motion, AnimatePresence } from 'framer-motion'
-import { useState, useEffect } from 'react'
-import { Link } from 'react-scroll'
+import { motion } from 'framer-motion'
+import { FaGithub, FaLinkedin, FaWhatsapp } from 'react-icons/fa'
+import { MdEmail, MdLocationOn } from 'react-icons/md'
+import { Link as ScrollLink } from 'react-scroll'
+
+interface Statistic {
+  value: string
+  label: string
+}
+
+interface QuickLink {
+  label: string
+  to: string
+}
+
+const statistics: Statistic[] = [
+  {
+    value: "3+",
+    label: "Anos de Experiência"
+  },
+  {
+    value: "50+",
+    label: "Projetos Concluídos"
+  },
+  {
+    value: "30+",
+    label: "Clientes Satisfeitos"
+  }
+]
+
+const quickLinks: QuickLink[] = [
+  { label: "Início", to: "hero" },
+  { label: "Sobre", to: "about" },
+  { label: "Habilidades", to: "skills" },
+  { label: "Serviços", to: "services" },
+  { label: "Projetos", to: "projects" },
+  { label: "Formação", to: "education" },
+  { label: "Contato", to: "contact" }
+]
 
 const Footer = () => {
-  const [showScrollButton, setShowScrollButton] = useState(false)
-  const [hoveredLink, setHoveredLink] = useState<string | null>(null)
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    })
-  }
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowScrollButton(window.scrollY > 300)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  const socialLinks = [
-    {
-      icon: <FaGithub className="text-2xl" />,
-      href: "https://github.com/Renan0004",
-      label: "GitHub",
-      color: "hover:text-[#2ea44f]"
-    },
-    {
-      icon: <FaLinkedin className="text-2xl" />,
-      href: "https://www.linkedin.com/in/renan-dirceu-de-almeida-16645025a",
-      label: "LinkedIn",
-      color: "hover:text-[#0077b5]"
-    },
-    {
-      icon: <FaWhatsapp className="text-2xl" />,
-      href: "https://wa.me/5541996300822",
-      label: "WhatsApp",
-      color: "hover:text-[#25D366]"
-    }
-  ]
-
-  const quickLinks = [
-    { name: "Início", to: "hero" },
-    { name: "Sobre", to: "about" },
-    { name: "Serviços", to: "services" },
-    { name: "Projetos", to: "projects" },
-    { name: "Contato", to: "contact" }
-  ]
-
-  const stats = [
-    { label: "Anos de Experiência", value: "3+" },
-    { label: "Projetos Concluídos", value: "50+" },
-    { label: "Clientes Satisfeitos", value: "30+" }
-  ]
-
   return (
-    <footer className="bg-dark-blue relative">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5 pointer-events-none">
-        <div className="absolute inset-0" style={{
-          backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
-          backgroundSize: '30px 30px'
-        }} />
+    <footer className="bg-dark-blue relative overflow-hidden pt-16 sm:pt-20 pb-8 sm:pb-10">
+      {/* Background Elements */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary-gold rounded-full filter blur-[100px]" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-secondary-gold rounded-full filter blur-[100px]" />
       </div>
 
-      {/* Conteúdo do Footer com z-index para garantir que fique acima do background */}
-      <div className="relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Estatísticas */}
-        <div className="container mx-auto px-4 py-8 border-b border-gray-800">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                className="text-center"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <h4 className="text-3xl font-bold text-primary-gold mb-2">{stat.value}</h4>
-                <p className="text-gray-400">{stat.label}</p>
-              </motion.div>
-            ))}
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
+          {statistics.map((stat, index) => (
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: false }}
+              className="text-center p-4 sm:p-6 bg-dark-blue/30 rounded-xl border border-primary-gold/10"
+            >
+              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-gold mb-2">
+                {stat.value}
+              </h3>
+              <p className="text-sm sm:text-base text-gray-400">{stat.label}</p>
+            </motion.div>
+          ))}
         </div>
 
-        <div className="container mx-auto px-4 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            {/* Coluna 1 - Sobre */}
-            <div className="relative">
-              <motion.div
-                className="flex items-center gap-2 mb-4"
-                whileHover={{ x: 5 }}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 mb-12 sm:mb-16">
+          {/* Informações */}
+          <div className="space-y-4">
+            <motion.h3
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: false }}
+              className="text-xl sm:text-2xl font-bold"
+            >
+              <span className="bg-gradient-to-r from-primary-gold to-secondary-gold bg-clip-text text-transparent">
+                {'</'} Renan Dirceu {'>'}
+              </span>
+            </motion.h3>
+            <motion.p
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              viewport={{ once: false }}
+              className="text-sm sm:text-base text-gray-400 max-w-md"
+            >
+              Desenvolvedor Full Stack apaixonado por criar soluções inovadoras e experiências digitais excepcionais.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: false }}
+              className="flex gap-4"
+            >
+              <a
+                href="https://github.com/Renan0004"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary-gold hover:text-white transition-colors duration-300"
               >
-                <FaCode className="text-primary-gold text-2xl" />
-                <h3 className="text-2xl font-bold text-primary-gold">
-                  Renan Dirceu
-                </h3>
-              </motion.div>
-              <p className="text-gray-400 mb-6">
-                Desenvolvedor Full Stack apaixonado por criar soluções inovadoras e experiências digitais excepcionais.
-              </p>
-              <div className="flex space-x-4">
-                {socialLinks.map((link, index) => (
-                  <motion.a
-                    key={index}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`text-primary-gold transition-all duration-300 ${link.color} relative`}
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    whileTap={{ scale: 0.9 }}
-                    aria-label={link.label}
-                    onMouseEnter={() => setHoveredLink(link.label)}
-                    onMouseLeave={() => setHoveredLink(null)}
-                  >
-                    {link.icon}
-                    {hoveredLink === link.label && (
-                      <motion.span
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-xs bg-dark-blue px-2 py-1 rounded whitespace-nowrap"
-                      >
-                        {link.label}
-                      </motion.span>
-                    )}
-                  </motion.a>
-                ))}
-              </div>
-            </div>
-
-            {/* Coluna 2 - Links Rápidos */}
-            <div className="relative">
-              <h3 className="text-xl font-bold text-primary-gold mb-4 flex items-center gap-2">
-                <span className="w-8 h-[2px] bg-primary-gold"></span>
-                Links Rápidos
-              </h3>
-              <ul className="space-y-2">
-                {quickLinks.map((link, index) => (
-                  <motion.li
-                    key={index}
-                    whileHover={{ x: 5 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  >
-                    <Link
-                      to={link.to}
-                      spy={true}
-                      smooth={true}
-                      offset={-100}
-                      duration={800}
-                      className="text-gray-400 hover:text-primary-gold transition-colors duration-300 block cursor-pointer"
-                    >
-                      {link.name}
-                    </Link>
-                  </motion.li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Coluna 3 - Contato */}
-            <div className="relative">
-              <h3 className="text-xl font-bold text-primary-gold mb-4 flex items-center gap-2">
-                <span className="w-8 h-[2px] bg-primary-gold"></span>
-                Conecte-se
-              </h3>
-              <div className="space-y-4">
-                <motion.a
-                  href="mailto:tatusage@gmail.com"
-                  className="flex items-center gap-3 text-gray-400 hover:text-primary-gold transition-all duration-300 group cursor-pointer"
-                  whileHover={{ x: 5 }}
-                >
-                  <span className="bg-primary-gold/10 p-2 rounded-full group-hover:bg-primary-gold/20 transition-colors duration-300">
-                    <FaEnvelope />
-                  </span>
-                  <span className="text-gray-400">tatusage@gmail.com</span>
-                </motion.a>
-                <motion.a
-                  href="https://wa.me/5541996300822"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-gray-400 hover:text-primary-gold transition-all duration-300 group cursor-pointer"
-                  whileHover={{ x: 5 }}
-                >
-                  <span className="bg-primary-gold/10 p-2 rounded-full group-hover:bg-primary-gold/20 transition-colors duration-300">
-                    <FaWhatsapp />
-                  </span>
-                  <span className="text-green-400">(41) 99630-0822</span>
-                </motion.a>
-                <motion.div
-                  className="flex items-center gap-3 text-gray-400 group"
-                  whileHover={{ x: 5 }}
-                >
-                  <span className="bg-primary-gold/10 p-2 rounded-full group-hover:bg-primary-gold/20 transition-colors duration-300">
-                    <FaMapMarkerAlt />
-                  </span>
-                  Curitiba, PR - Brasil
-                </motion.div>
-              </div>
-            </div>
+                <FaGithub className="text-xl sm:text-2xl" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/renan-dirceu-de-almeida-16645025a"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary-gold hover:text-white transition-colors duration-300"
+              >
+                <FaLinkedin className="text-xl sm:text-2xl" />
+              </a>
+              <a
+                href="https://wa.me/5541996300822"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary-gold hover:text-white transition-colors duration-300"
+              >
+                <FaWhatsapp className="text-xl sm:text-2xl" />
+              </a>
+            </motion.div>
           </div>
 
-          {/* Linha Divisória */}
-          <div className="border-t border-gray-800 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <p className="text-gray-400 text-sm mb-4 md:mb-0">
-                © {new Date().getFullYear()} Renan Dirceu. Todos os direitos reservados.
-              </p>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Link
-                  to="contact"
+          {/* Links Rápidos */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: false }}
+            className="space-y-4"
+          >
+            <h3 className="text-lg sm:text-xl font-bold text-white mb-4 sm:mb-6">Links Rápidos</h3>
+            <nav className="grid grid-cols-2 sm:grid-cols-1 gap-2 sm:space-y-3">
+              {quickLinks.map((link) => (
+                <ScrollLink
+                  key={link.label}
+                  to={link.to}
                   spy={true}
                   smooth={true}
-                  offset={-100}
-                  duration={800}
-                  className="inline-flex items-center gap-2 bg-primary-gold/10 text-primary-gold px-6 py-2 rounded-full hover:bg-primary-gold hover:text-dark-blue transition-all duration-300 cursor-pointer"
+                  offset={-70}
+                  duration={500}
+                  className="text-sm sm:text-base text-gray-400 hover:text-primary-gold transition-colors duration-300 cursor-pointer"
                 >
-                  Iniciar Projeto
-                </Link>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </div>
+                  {link.label}
+                </ScrollLink>
+              ))}
+            </nav>
+          </motion.div>
 
-      {/* Botão Voltar ao Topo */}
-      <AnimatePresence>
-        {showScrollButton && (
-          <motion.button
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-            onClick={scrollToTop}
-            className="fixed bottom-8 right-8 bg-primary-gold text-dark-blue w-12 h-12 rounded-full flex items-center justify-center hover:bg-white transition-all duration-300 shadow-lg z-50 cursor-pointer"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
+          {/* Conecte-se */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: false }}
+            className="space-y-4"
           >
-            <FaArrowUp className="text-xl" />
-          </motion.button>
-        )}
-      </AnimatePresence>
+            <h3 className="text-lg sm:text-xl font-bold text-white mb-4 sm:mb-6">Conecte-se</h3>
+            <div className="space-y-4">
+              <a
+                href="mailto:tatusage@gmail.com"
+                className="flex items-center gap-3 text-sm sm:text-base text-gray-400 hover:text-primary-gold transition-colors duration-300"
+              >
+                <MdEmail className="text-lg sm:text-xl" />
+                <span>tatusage@gmail.com</span>
+              </a>
+              <a
+                href="https://wa.me/5541996300822"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-sm sm:text-base text-gray-400 hover:text-primary-gold transition-colors duration-300"
+              >
+                <FaWhatsapp className="text-lg sm:text-xl" />
+                <span>(41) 99630-0822</span>
+              </a>
+              <div className="flex items-center gap-3 text-sm sm:text-base text-gray-400">
+                <MdLocationOn className="text-lg sm:text-xl" />
+                <span>Curitiba, PR - Brasil</span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Copyright */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: false }}
+          className="text-center pt-6 sm:pt-8 border-t border-gray-800"
+        >
+          <p className="text-sm sm:text-base text-gray-400">
+            © 2025 Renan Dirceu. Todos os direitos reservados.
+          </p>
+        </motion.div>
+
+        {/* Botão Iniciar Projeto */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.3 }}
+          viewport={{ once: false }}
+          className="fixed left-4 sm:left-8 bottom-4 sm:bottom-8 z-30"
+        >
+          <ScrollLink
+            to="contact"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            className="inline-block px-4 sm:px-6 py-2 sm:py-3 rounded-full
+              bg-gradient-to-r from-primary-gold to-secondary-gold
+              text-dark-blue text-sm sm:text-base font-medium cursor-pointer
+              transform transition-all duration-300
+              hover:scale-105 hover:shadow-lg hover:shadow-primary-gold/20"
+          >
+            Iniciar Projeto
+          </ScrollLink>
+        </motion.div>
+      </div>
     </footer>
   )
 }

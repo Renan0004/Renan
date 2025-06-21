@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useState } from 'react'
 
 interface Project {
   id: number;
@@ -6,8 +7,7 @@ interface Project {
   description: string;
   image: string;
   tech: string[];
-  featured?: boolean;
-  category?: string;
+  category: string;
 }
 
 const projects: Project[] = [
@@ -17,7 +17,6 @@ const projects: Project[] = [
     description: "Desenvolvimento completo de site institucional com sistema de agendamento integrado e painel administrativo personalizado.",
     image: "/images/SiteDentista2.jpeg",
     tech: ["React", "TypeScript", "TailwindCSS", "Node.js", "MongoDB"],
-    featured: true,
     category: "Desenvolvimento Web Full Stack"
   },
   {
@@ -26,56 +25,62 @@ const projects: Project[] = [
     description: "Landing page otimizada para conversão, integrada com WhatsApp e sistema de CRM para gestão de leads.",
     image: "/images/SiteDentista.jpeg",
     tech: ["React", "Next.js", "TailwindCSS", "API WhatsApp"],
-    featured: true,
     category: "Marketing Digital"
   },
   {
-    id: 4, 
-    title: "Barbearia",
+    id: 3,
+    title: "Sistema de Barbearia",
     description: "Sistema completo de gestão para barbearia com agendamento online, controle financeiro e fidelização de clientes.",
     image: "/images/SiteBarbearia.jpeg",
     tech: ["React", "TypeScript", "Node.js", "PostgreSQL"],
     category: "Sistemas de Gestão"
   },
   {
-    id: 5,
+    id: 4,
     title: "Salão de Beleza",
     description: "Landing page moderna e responsiva com sistema de agendamento integrado ao WhatsApp, Google Maps e gestão de redes sociais.",
     image: "/images/SiteSalao.jpeg",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    featured: true,
-    category: "Landing Page"
+    category: "Sistemas de Gestão"
   },
   {
-    id: 6,
-    title: "Dev_ChatBot",
+    id: 5,
+    title: "Chatbot Inteligente",
     description: "Automação completa de atendimento via WhatsApp com IA, integração de pagamentos e sistema de agendamento.",
     image: "/images/chatbot.jpg",
     tech: ["Node.js", "WhatsApp API", "OpenAI", "MongoDB"],
-    category: "Automação"
+    category: "Automação de atendimento"
   },
   {
-    id: 7,
-    title: "FinControl",
+    id: 6,
+    title: "Sistema Financeiro",
     description: "Aplicação web para gestão financeira com relatórios personalizados e integração com APIs bancárias.",
     image: "/images/Fincontrol.jpeg",
     tech: ["Node.js", "Express", "MongoDB", "React"],
-    category: "Aplicações Web"
+    category: "Sistemas de gestão"
   }
 ]
 
 const Projects = () => {
+  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+
   return (
-    <section id="projects" className="py-16 sm:py-20 bg-dark-blue">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="py-16 sm:py-20 bg-dark-blue relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-primary-gold rounded-full filter blur-[100px]" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary-gold rounded-full filter blur-[100px]" />
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-primary-gold to-secondary-gold bg-clip-text text-transparent">
               Projetos
             </span>
@@ -85,43 +90,45 @@ const Projects = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="bg-light-blue/10 rounded-xl overflow-hidden group hover:bg-light-blue/20 transition-all duration-300"
+              exit={{ opacity: 0, y: -100 }}
+              transition={{ 
+                duration: 0.5,
+                delay: index * 0.1
+              }}
+              viewport={{ once: false, margin: "-100px" }}
+              className={`group relative bg-dark-blue/30 rounded-xl overflow-hidden
+                transform transition-all duration-500
+                hover:shadow-xl hover:shadow-primary-gold/10
+                ${hoveredProject === project.id ? 'scale-[1.02]' : ''}`}
+              onMouseEnter={() => setHoveredProject(project.id)}
+              onMouseLeave={() => setHoveredProject(null)}
             >
-              {/* Imagem do Projeto */}
-              <div className="relative h-48 sm:h-56 overflow-hidden">
+              {/* Imagem */}
+              <div className="relative aspect-video overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                  loading={index < 3 ? "eager" : "lazy"}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-blue/80 to-transparent opacity-60" />
-              </div>
-
-              {/* Conteúdo do Projeto */}
-              <div className="p-6">
+                <div className="absolute inset-0 bg-gradient-to-t from-dark-blue/90 to-transparent" />
+                
                 {/* Categoria */}
-                <div className="mb-3">
-                  <span className="text-sm font-medium text-primary-gold">
+                <div className="absolute bottom-4 left-4">
+                  <span className="text-xs font-medium text-primary-gold px-3 py-1 rounded-full bg-dark-blue/80 border border-primary-gold/20">
                     {project.category}
                   </span>
                 </div>
+              </div>
 
-                {/* Título */}
-                <h3 className="text-xl font-bold text-white group-hover:text-primary-gold transition-colors duration-300 mb-3">
-                  {project.title}
-                </h3>
-
-                {/* Descrição */}
-                <p className="text-gray-300 mb-4 line-clamp-2 text-sm sm:text-base">
+              {/* Conteúdo */}
+              <div className="p-6">
+                <p className="text-gray-300 mb-4 text-sm">
                   {project.description}
                 </p>
 
@@ -130,7 +137,7 @@ const Projects = () => {
                   {project.tech.map((tech, index) => (
                     <span
                       key={index}
-                      className="px-3 py-1 bg-dark-blue/50 text-primary-gold text-xs sm:text-sm rounded-full border border-primary-gold/20"
+                      className="px-2 py-1 bg-dark-blue/50 text-primary-gold text-xs rounded-full border border-primary-gold/20"
                     >
                       {tech}
                     </span>

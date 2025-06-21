@@ -1,113 +1,109 @@
 import { motion } from 'framer-motion'
-import { FaGraduationCap, FaCertificate, FaCode } from 'react-icons/fa'
+import { FaGraduationCap } from 'react-icons/fa'
 
 interface Education {
   id: number
-  type: 'graduation' | 'certificate' | 'course'
   title: string
   institution: string
   period: string
   description: string
+  status: 'cursando' | 'concluido'
 }
 
-const Education = () => {
-  const educationItems: Education[] = [
-    {
-      id: 1,
-      type: 'graduation',
-      title: 'Tecnologia (CST), técnico em desenvolvimento de sistemas',
-      institution: 'Serviço Nacional de Aprendizagem Industrial - SENAI',
-      period: 'jul de 2022 - dez de 2023',
-      description: 'Desenvolvimento de sistema integrado para gestão de festas de aniversário, implementação de APIs externas, criação de interfaces responsivas, modelagem de banco de dados, programação em C#.'
-    },
-    {
-      id: 2,
-      type: 'graduation',
-      title: 'Curso Superior de Tecnologia (CST), Tecnólogo Analise Desenvolvimento de Sistemas',
-      institution: 'Universidade Positivo - UP',
-      period: 'abr de 2025 - dez de 2027',
-      description: 'Formação superior com foco em análise e desenvolvimento de sistemas.'
-    }
-  ]
-
-  const getIcon = (type: string) => {
-    switch (type) {
-      case 'graduation':
-        return <FaGraduationCap className="text-2xl sm:text-3xl" />
-      case 'certificate':
-        return <FaCertificate className="text-2xl sm:text-3xl" />
-      case 'course':
-        return <FaCode className="text-2xl sm:text-3xl" />
-      default:
-        return null
-    }
+const educationData: Education[] = [
+  {
+    id: 1,
+    title: "Curso Superior de Tecnologia (CST), Tecnólogo Analise Desenvolvimento de Sistemas",
+    institution: "Universidade Positivo - UP",
+    period: "jan de 2025 - dez de 2027",
+    status: 'cursando',
+    description: "Formação superior com foco em análise e desenvolvimento de sistemas."
+  },
+  {
+    id: 2,
+    title: "Tecnologia (CST), técnico em desenvolvimento de sistemas",
+    institution: "Serviço Nacional de Aprendizagem Industrial - SENAI",
+    period: "jul de 2022 - dez de 2023",
+    status: 'concluido',
+    description: "Desenvolvimento de sistema integrado para gestão de festas de aniversário, implementação de APIs externas, criação de interfaces responsivas, modelagem de banco de dados, programação em C#."
   }
+]
 
+const Education = () => {
   return (
-    <section id="education" className="py-16 sm:py-20 bg-light-blue">
-      <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
-        <motion.h2
-          className="text-3xl sm:text-4xl font-bold text-center mb-12 text-primary-gold"
+    <section id="education" className="py-12 sm:py-16 md:py-20 bg-dark-blue relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary-gold rounded-full filter blur-[100px]" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary-gold rounded-full filter blur-[100px]" />
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: false }}
+          className="text-center mb-10 sm:mb-16"
         >
-          Formação Acadêmica
-        </motion.h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
+            <span className="bg-gradient-to-r from-primary-gold to-secondary-gold bg-clip-text text-transparent">
+              Formação Acadêmica
+            </span>
+          </h2>
+        </motion.div>
 
-        <div className="space-y-6">
-          {educationItems.map((item, index) => (
+        <div className="max-w-4xl mx-auto space-y-8 sm:space-y-12">
+          {educationData.map((education, index) => (
             <motion.div
-              key={item.id}
+              key={education.id}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ 
+                duration: 0.7,
+                type: "spring",
+                bounce: 0.3
+              }}
+              viewport={{ once: false, margin: "-100px" }}
               className="relative"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              viewport={{ once: true }}
             >
-              {/* Card com gradiente na borda */}
-              <div className="relative bg-dark-blue rounded-xl p-0.5 shadow-lg hover:shadow-xl transition-all duration-300">
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-primary-gold to-secondary-gold opacity-20"></div>
-                
-                {/* Conteúdo do card */}
-                <div className="relative bg-dark-blue rounded-xl p-6">
-                  {/* Cabeçalho com ícone e título */}
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="bg-primary-gold/10 rounded-lg p-3">
-                      <span className="text-primary-gold">
-                        {getIcon(item.type)}
-                      </span>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl sm:text-2xl font-bold text-primary-gold mb-2">
-                        {item.title}
-                      </h3>
-                      <p className="text-secondary-gold text-base sm:text-lg">
-                        {item.institution}
-                      </p>
-                    </div>
+              <div className="flex flex-col md:flex-row items-start gap-4 sm:gap-6 bg-dark-blue/30 rounded-2xl p-6 sm:p-8 border border-primary-gold/10
+                transform transition-all duration-300 hover:border-primary-gold/30 hover:shadow-xl hover:shadow-primary-gold/5">
+                {/* Lado Esquerdo - Ícone e Status */}
+                <div className="flex flex-row md:flex-col items-center md:items-start gap-4">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-dark-blue/50 border-2 border-primary-gold flex items-center justify-center">
+                    <FaGraduationCap className="text-2xl sm:text-3xl text-primary-gold" />
                   </div>
-
-                  {/* Período */}
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className="h-0.5 w-12 bg-primary-gold/30"></div>
-                    <p className="text-gray-400 text-sm">
-                      {item.period}
-                    </p>
+                  <div className={`px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-medium 
+                    ${education.status === 'cursando' 
+                      ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30' 
+                      : 'bg-green-500/20 text-green-400 border border-green-500/30'}`}>
+                    {education.status === 'cursando' ? 'Cursando' : 'Concluído'}
                   </div>
+                </div>
 
-                  {/* Descrição */}
-                  <p className="text-gray-300 text-base leading-relaxed">
-                    {item.description}
+                {/* Linha Separadora Vertical */}
+                <div className="hidden md:block w-px h-full bg-gradient-to-b from-primary-gold/30 via-primary-gold/10 to-transparent" />
+
+                {/* Lado Direito - Conteúdo */}
+                <div className="flex-1">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">
+                    {education.title}
+                  </h3>
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                    <span className="text-base sm:text-lg text-primary-gold font-medium">
+                      {education.institution}
+                    </span>
+                    <span className="hidden sm:block text-gray-400">•</span>
+                    <span className="text-sm sm:text-base text-gray-400">
+                      {education.period}
+                    </span>
+                  </div>
+                  <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
+                    {education.description}
                   </p>
                 </div>
               </div>
-
-              {/* Linha conectora entre cards */}
-              {index < educationItems.length - 1 && (
-                <div className="absolute left-8 bottom-0 w-0.5 h-6 bg-gradient-to-b from-primary-gold/20 to-transparent"></div>
-              )}
             </motion.div>
           ))}
         </div>

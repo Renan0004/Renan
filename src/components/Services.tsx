@@ -1,163 +1,158 @@
 import { motion } from 'framer-motion'
+import { FaGlobe, FaMobileAlt, FaCogs } from 'react-icons/fa'
 import { Link } from 'react-scroll'
-import { FaCode, FaRocket, FaMobile, FaServer, FaRobot, FaChartLine } from 'react-icons/fa'
 
-interface Service {
-  icon: JSX.Element;
-  title: string;
-  description: string;
-  features: string[];
-}
-
-const services: Service[] = [
+const services = [
   {
-    icon: <FaCode className="text-4xl" />,
-    title: "Desenvolvimento Web Full Stack",
-    description: "Criação de sites e aplicações web completas, desde o design até a implementação.",
+    icon: <FaGlobe />,
+    title: "Criação de Sites",
+    description: "Sites responsivos e otimizados para SEO, garantindo a melhor experiência para seus usuários.",
     features: [
-      "Sites institucionais e landing pages",
-      "Sistemas web personalizados",
-      "Integrações com APIs e serviços",
-      "SEO e performance otimizada"
+      "Design Responsivo",
+      "Otimização SEO",
+      "Performance Otimizada",
+      "Integração com APIs"
     ]
   },
   {
-    icon: <FaMobile className="text-4xl" />,
-    title: "Aplicações Web Responsivas",
-    description: "Desenvolvimento de interfaces modernas e adaptáveis para todos os dispositivos.",
+    icon: <FaMobileAlt />,
+    title: "Desenvolvimento de Apps",
+    description: "Aplicativos nativos para iOS e Android usando React Native, com foco em performance.",
     features: [
-      "Design responsivo e mobile-first",
-      "PWAs e aplicações offline-first",
-      "Animações e interações suaves",
-      "Otimização de performance"
+      "Apps iOS e Android",
+      "UI/UX Intuitiva",
+      "Integração Backend",
+      "Push Notifications"
     ]
   },
   {
-    icon: <FaServer className="text-4xl" />,
-    title: "Desenvolvimento Backend",
-    description: "Construção de APIs robustas e sistemas escaláveis para sua aplicação.",
+    icon: <FaCogs />,
+    title: "Projetos Personalizados",
+    description: "Sistemas, APIs e automações desenvolvidos sob medida para seu negócio.",
     features: [
-      "APIs RESTful e GraphQL",
-      "Bancos de dados SQL e NoSQL",
-      "Autenticação e segurança",
-      "Arquitetura de microserviços"
-    ]
-  },
-  {
-    icon: <FaRobot className="text-4xl" />,
-    title: "Automação e ChatBots",
-    description: "Automatização de processos e criação de bots inteligentes para seu negócio.",
-    features: [
-      "Bots para WhatsApp e Telegram",
-      "Automação de processos",
-      "Integração com IA",
-      "Sistemas de atendimento"
-    ]
-  },
-  {
-    icon: <FaRocket className="text-4xl" />,
-    title: "Consultoria Técnica",
-    description: "Orientação especializada para seu projeto ou equipe de desenvolvimento.",
-    features: [
-      "Arquitetura de software",
-      "Melhores práticas e padrões",
-      "Code review e mentoria",
-      "Planejamento técnico"
-    ]
-  },
-  {
-    icon: <FaChartLine className="text-4xl" />,
-    title: "Sistemas de Gestão",
-    description: "Desenvolvimento de sistemas empresariais para otimizar seus processos.",
-    features: [
-      "ERPs personalizados",
-      "CRMs e gestão de leads",
-      "Dashboards e relatórios",
-      "Integrações com sistemas existentes"
+      "Sistemas Web",
+      "APIs RESTful",
+      "Automação de Processos",
+      "Dashboards Analíticos"
     ]
   }
 ]
 
 const Services = () => {
   return (
-    <section id="services" className="py-20 bg-dark-blue">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto text-center mb-16">
-          <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-6 text-primary-gold"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-          >
-            Serviços
-          </motion.h2>
-          <motion.p
-            className="text-gray-400 text-lg md:text-xl"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true }}
-          >
-            Soluções completas em desenvolvimento de software para transformar sua ideia em realidade
-          </motion.p>
-        </div>
+    <section id="services" className="py-16 md:py-20 bg-dark-blue relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-5 pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary-gold rounded-full blur-[100px]" />
+        <div className="absolute bottom-40 -left-40 w-80 h-80 bg-secondary-gold rounded-full blur-[100px]" />
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="text-center mb-12"
+        >
+          <span className="text-primary-gold uppercase tracking-wider text-sm font-semibold mb-4 block">
+            NOSSOS SERVIÇOS
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-primary-gold">
+            Soluções Completas
+          </h2>
+          <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto">
+            Oferecemos um conjunto abrangente de serviços para impulsionar sua presença digital, desde o desenvolvimento até a implementação e manutenção.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Link
-              to="projects"
-              spy={true}
-              smooth={true}
-              offset={-100}
-              duration={500}
-              key={index}
+            <motion.div
+              key={service.title}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ 
+                duration: 0.5, 
+                delay: 0.2 + (index * 0.1),
+                type: "spring",
+                bounce: 0.4
+              }}
+              viewport={{ once: true, margin: "-50px" }}
+              className="bg-dark-blue-light p-8 rounded-2xl border border-primary-gold/20 group hover:bg-primary-gold/5 transition-all duration-300"
             >
               <motion.div
-                className="bg-dark-blue rounded-xl p-8 hover:bg-light-blue/20 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer group"
+                initial={{ scale: 0.5, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                transition={{ 
+                  duration: 0.5, 
+                  delay: 0.3 + (index * 0.1),
+                  type: "spring",
+                  bounce: 0.4
+                }}
+                className="text-5xl text-primary-gold mb-6 group-hover:scale-110 transition-transform duration-300"
+              >
+                {service.icon}
+              </motion.div>
+              
+              <motion.h3 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 + (index * 0.1) }}
+                className="text-2xl font-bold text-primary-gold mb-4"
               >
-                <div className="text-primary-gold mb-6 group-hover:text-primary-gold">
-                  {service.icon}
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-primary-gold">
-                  {service.title}
-                </h3>
-                <p className="text-gray-400 mb-6 group-hover:text-primary-gold">
-                  {service.description}
-                </p>
-                <ul className="space-y-3 group-hover:text-primary-gold">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center">
-                      <span className="w-2 h-2 bg-primary-gold rounded-full mr-3" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            </Link>
+                {service.title}
+              </motion.h3>
+              
+              <motion.p 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.5 + (index * 0.1) }}
+                className="text-gray-300 mb-6"
+              >
+                {service.description}
+              </motion.p>
+
+              <motion.ul
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.6 + (index * 0.1) }}
+                className="space-y-3"
+              >
+                {service.features.map((feature, featureIndex) => (
+                  <motion.li
+                    key={feature}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: 0.7 + (index * 0.1) + (featureIndex * 0.05) }}
+                    className="flex items-center text-gray-300"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary-gold mr-2" />
+                    {feature}
+                  </motion.li>
+                ))}
+              </motion.ul>
+            </motion.div>
           ))}
         </div>
 
         <motion.div
-          className="text-center mt-16"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.8 }}
+          viewport={{ once: true, margin: "-50px" }}
+          className="text-center mt-12 md:mt-16"
         >
+          <p className="text-gray-300 mb-6">Pronto para começar seu projeto?</p>
           <Link
             to="contact"
             spy={true}
             smooth={true}
-            offset={-100}
+            offset={-70}
             duration={800}
-            className="inline-flex items-center gap-3 bg-primary-gold text-dark-blue px-8 py-4 rounded-full font-medium hover:bg-white transition-all duration-300 transform hover:scale-105 cursor-pointer"
+            className="inline-block px-8 py-3 md:px-10 md:py-4 bg-gradient-to-r from-primary-gold to-secondary-gold text-dark-blue rounded-full font-bold hover:shadow-[0_0_20px_rgba(255,215,0,0.5)] transition-all duration-300 transform hover:scale-105 cursor-pointer"
           >
-            Solicitar Orçamento <FaRocket className="text-xl" />
+            Iniciar Projeto
           </Link>
         </motion.div>
       </div>
