@@ -149,12 +149,16 @@ const Services = () => {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-3 bg-primary-gold text-dark-blue px-8 py-4 rounded-full font-medium hover:bg-white transition-all duration-300 transform hover:scale-105"
+          <Link
+            to="contact"
+            spy={true}
+            smooth={true}
+            offset={-100}
+            duration={800}
+            className="inline-flex items-center gap-3 bg-primary-gold text-dark-blue px-8 py-4 rounded-full font-medium hover:bg-white transition-all duration-300 transform hover:scale-105 cursor-pointer"
           >
             Solicitar Orçamento <FaRocket className="text-xl" />
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

@@ -9,9 +9,9 @@ module.exports = {
       colors: {
         'primary-gold': '#FFD700',
         'secondary-gold': '#F4C430',
-        'dark-blue': '#1a1f2c',
-        'light-blue': '#242937',
-        'hover-blue': '#2a2f3c',
+        'dark-blue': '#000000',
+        'light-blue': '#121212',
+        'hover-blue': '#1a1a1a',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],

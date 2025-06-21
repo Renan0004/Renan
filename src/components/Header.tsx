@@ -51,9 +51,11 @@ const Header = () => {
             smooth={true}
             offset={-100}
             duration={500}
-            className="text-2xl font-bold text-white hover:text-primary-gold transition-colors duration-300 cursor-pointer"
+            className="text-2xl font-bold cursor-pointer flex items-center"
           >
-            {'<Renan />'}
+            <span className="text-primary-gold">R</span>
+            <span className="text-white text-sm mx-0.5">{'{}'}</span>
+            <span className="bg-gradient-to-r from-primary-gold to-secondary-gold bg-clip-text text-transparent">Dev</span>
           </Link>
         </motion.div>
 

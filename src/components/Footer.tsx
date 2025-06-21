@@ -1,6 +1,7 @@
 import { FaGithub, FaLinkedin, FaWhatsapp, FaEnvelope, FaArrowUp, FaMapMarkerAlt, FaCode } from 'react-icons/fa'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
+import { Link } from 'react-scroll'
 
 const Footer = () => {
   const [showScrollButton, setShowScrollButton] = useState(false)
@@ -51,11 +52,11 @@ const Footer = () => {
   ]
 
   const quickLinks = [
-    { name: "Início", href: "#hero" },
-    { name: "Sobre", href: "#about" },
-    { name: "Serviços", href: "#services" },
-    { name: "Projetos", href: "#projects" },
-    { name: "Contato", href: "#contact" }
+    { name: "Início", to: "hero" },
+    { name: "Sobre", to: "about" },
+    { name: "Serviços", to: "services" },
+    { name: "Projetos", to: "projects" },
+    { name: "Contato", to: "contact" }
   ]
 
   const stats = [
@@ -153,16 +154,16 @@ const Footer = () => {
                     whileHover={{ x: 5 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
-                    <a
-                      href={link.href}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        scrollToSection(link.href);
-                      }}
+                    <Link
+                      to={link.to}
+                      spy={true}
+                      smooth={true}
+                      offset={-100}
+                      duration={800}
                       className="text-gray-400 hover:text-primary-gold transition-colors duration-300 block cursor-pointer"
                     >
                       {link.name}
-                    </a>
+                    </Link>
                   </motion.li>
                 ))}
               </ul>
@@ -216,18 +217,18 @@ const Footer = () => {
               <p className="text-gray-400 text-sm mb-4 md:mb-0">
                 © {new Date().getFullYear()} Renan Dirceu. Todos os direitos reservados.
               </p>
-              <motion.a
-                href="#contact"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection('#contact');
-                }}
+              <Link
+                to="contact"
+                spy={true}
+                smooth={true}
+                offset={-100}
+                duration={800}
                 className="inline-flex items-center gap-2 bg-primary-gold/10 text-primary-gold px-6 py-2 rounded-full hover:bg-primary-gold hover:text-dark-blue transition-all duration-300 cursor-pointer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 Iniciar Projeto
-              </motion.a>
+              </Link>
             </div>
           </div>
         </div>
