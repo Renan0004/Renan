@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaWhatsapp, FaGithub, FaLinkedin } from 'react-icons/fa'
-import emailjs from '@emailjs/browser'
+import emailjs from 'emailjs-com'
 import { toast } from 'react-hot-toast'
 
 interface FormData {
@@ -150,6 +150,7 @@ const Contact = () => {
                   id="name"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  autoComplete="name"
                   className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base bg-dark-blue/50 border ${
                     errors.name ? 'border-red-500' : 'border-primary-gold/20'
                   } text-white placeholder-gray-400 focus:outline-none focus:border-primary-gold transition-colors`}
@@ -169,6 +170,7 @@ const Contact = () => {
                   id="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  autoComplete="email"
                   className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base bg-dark-blue/50 border ${
                     errors.email ? 'border-red-500' : 'border-primary-gold/20'
                   } text-white placeholder-gray-400 focus:outline-none focus:border-primary-gold transition-colors`}
@@ -187,6 +189,7 @@ const Contact = () => {
                   id="message"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  autoComplete="off"
                   rows={4}
                   className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base bg-dark-blue/50 border ${
                     errors.message ? 'border-red-500' : 'border-primary-gold/20'
