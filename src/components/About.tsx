@@ -5,33 +5,33 @@ import euPolo from '../assets/images/EuPolo.png'
 
 const About = () => {
   return (
-    <section id="about" className="py-16 md:py-20 bg-dark-blue relative overflow-hidden">
+    <section id="about" className="py-12 sm:py-16 md:py-20 bg-dark-blue relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-5 pointer-events-none">
-        <div className="absolute -top-40 -left-40 w-80 h-80 bg-primary-gold rounded-full blur-[100px]" />
-        <div className="absolute top-1/2 -right-40 w-80 h-80 bg-secondary-gold rounded-full blur-[100px]" />
+        <div className="absolute -top-40 -left-40 w-60 h-60 sm:w-80 sm:h-80 bg-primary-gold rounded-full blur-[100px]" />
+        <div className="absolute top-1/2 -right-40 w-60 h-60 sm:w-80 sm:h-80 bg-secondary-gold rounded-full blur-[100px]" />
       </div>
       
-      <div className="container relative z-10">
+      <div className="container relative z-10 px-3 xs:px-4 sm:px-6 max-w-7xl mx-auto">
         <motion.h2
-          className="text-4xl md:text-5xl font-bold text-center mb-10 md:mb-16 text-primary-gold"
-          initial={{ opacity: 0, y: 50 }}
+          className="text-3xl xs:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-10 md:mb-16 text-primary-gold"
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-50px" }}
         >
           Sobre Mim
         </motion.h2>
 
         {/* Conteúdo principal */}
-        <div className="flex flex-col lg:flex-row gap-8 md:gap-12 items-center">
+        <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 md:gap-12 items-center">
           {/* Imagem na lateral com efeito de destaque */}
           <motion.div 
             className="lg:w-2/5 flex justify-center"
-            initial={{ opacity: 0, x: -100 }}
+            initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
-            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-50px" }}
           >
             <div className="relative group">
               {/* Container da imagem */}
@@ -53,17 +53,17 @@ const About = () => {
           {/* Informações ao lado */}
           <motion.div 
             className="lg:w-3/5"
-            initial={{ opacity: 0, x: 100 }}
+            initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
-            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-50px" }}
           >
             {/* Perfil */}
             <motion.div 
               className="mb-6 md:mb-8"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
             >
               <div className="flex items-center gap-4 mb-4">
                 <motion.span 

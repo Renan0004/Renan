@@ -65,43 +65,42 @@ const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
 
   return (
-    <section id="projects" className="py-16 sm:py-20 bg-dark-blue relative overflow-hidden">
+    <section id="projects" className="py-12 sm:py-16 md:py-20 bg-dark-blue relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-primary-gold rounded-full filter blur-[100px]" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary-gold rounded-full filter blur-[100px]" />
+        <div className="absolute top-0 left-0 w-60 h-60 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-primary-gold rounded-full filter blur-[100px]" />
+        <div className="absolute bottom-0 right-0 w-60 h-60 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-secondary-gold rounded-full filter blur-[100px]" />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-3 xs:px-4 sm:px-6 lg:px-8 relative z-10 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: false }}
+          transition={{ duration: 0.3 }}
+          viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl xs:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
             <span className="bg-gradient-to-r from-primary-gold to-secondary-gold bg-clip-text text-transparent">
               Projetos
             </span>
           </h2>
-          <p className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto">
+          <p className="text-gray-300 text-sm xs:text-base sm:text-lg max-w-2xl mx-auto px-2 sm:px-0">
             Conheça alguns dos projetos que desenvolvi, combinando tecnologia e inovação para criar soluções impactantes.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xs:gap-6 sm:gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 100 }}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -100 }}
               transition={{ 
-                duration: 0.5,
-                delay: index * 0.1
+                duration: 0.4,
+                delay: index * 0.05
               }}
-              viewport={{ once: false, margin: "-100px" }}
+              viewport={{ once: true, margin: "-50px" }}
               className={`group relative bg-dark-blue/30 rounded-xl overflow-hidden
                 transform transition-all duration-500
                 hover:shadow-xl hover:shadow-primary-gold/10
@@ -127,17 +126,17 @@ const Projects = () => {
               </div>
 
               {/* Conteúdo */}
-              <div className="p-6">
-                <p className="text-gray-300 mb-4 text-sm">
+              <div className="p-4 xs:p-5 sm:p-6">
+                <p className="text-gray-300 mb-3 xs:mb-4 text-xs xs:text-sm leading-relaxed">
                   {project.description}
                 </p>
 
                 {/* Tecnologias */}
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5 xs:gap-2">
                   {project.tech.map((tech, index) => (
                     <span
                       key={index}
-                      className="px-2 py-1 bg-dark-blue/50 text-primary-gold text-xs rounded-full border border-primary-gold/20"
+                      className="px-2 xs:px-2.5 py-1 bg-dark-blue/50 text-primary-gold text-xs rounded-full border border-primary-gold/20 hover:border-primary-gold/40 transition-colors duration-200"
                     >
                       {tech}
                     </span>

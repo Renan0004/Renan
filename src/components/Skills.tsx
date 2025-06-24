@@ -135,19 +135,19 @@ const Skills = () => {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
 
   return (
-    <section id="skills" className="py-16 sm:py-20 bg-dark-blue relative overflow-hidden">
+    <section id="skills" className="py-12 sm:py-16 md:py-20 bg-dark-blue relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-primary-gold rounded-full filter blur-[100px]" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary-gold rounded-full filter blur-[100px]" />
+        <div className="absolute top-0 right-0 w-60 h-60 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-primary-gold rounded-full filter blur-[100px]" />
+        <div className="absolute bottom-0 left-0 w-60 h-60 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-secondary-gold rounded-full filter blur-[100px]" />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-3 xs:px-4 sm:px-6 lg:px-8 relative z-10 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: false }}
+          transition={{ duration: 0.3 }}
+          viewport={{ once: true }}
           className="text-center mb-12"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -160,14 +160,14 @@ const Skills = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xs:gap-6 sm:gap-8">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
-              viewport={{ once: false }}
+              transition={{ duration: 0.4, delay: categoryIndex * 0.05 }}
+              viewport={{ once: true }}
               className="bg-dark-blue/30 rounded-xl p-6 hover:bg-dark-blue/40 transition-all duration-300 
                 border border-primary-gold/10 hover:border-primary-gold/30 hover:shadow-lg hover:shadow-primary-gold/5"
             >

@@ -109,16 +109,16 @@ const Contact = () => {
     <section id="contact" className="py-12 sm:py-16 md:py-20 bg-dark-blue relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-primary-gold rounded-full filter blur-[100px]" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary-gold rounded-full filter blur-[100px]" />
+        <div className="absolute top-0 right-0 w-60 h-60 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-primary-gold rounded-full filter blur-[100px]" />
+        <div className="absolute bottom-0 left-0 w-60 h-60 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-secondary-gold rounded-full filter blur-[100px]" />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-3 xs:px-4 sm:px-6 lg:px-8 relative z-10 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: false }}
+          transition={{ duration: 0.3 }}
+          viewport={{ once: true }}
           className="text-center mb-8 sm:mb-12"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
@@ -134,10 +134,10 @@ const Contact = () => {
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-start">
           {/* Formulário de Contato */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: false }}
+            transition={{ duration: 0.4 }}
+            viewport={{ once: true }}
             className="bg-dark-blue/30 rounded-2xl p-6 sm:p-8 border border-primary-gold/10"
           >
             <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
@@ -229,10 +229,10 @@ const Contact = () => {
 
           {/* Links Sociais */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: false }}
+            transition={{ duration: 0.4 }}
+            viewport={{ once: true }}
             className="space-y-4 sm:space-y-6"
           >
             {socialLinks.map((link, index) => (
@@ -243,8 +243,8 @@ const Contact = () => {
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-                viewport={{ once: false }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
+                viewport={{ once: true }}
                 className={`group flex items-center gap-4 sm:gap-6 p-4 sm:p-6 rounded-2xl bg-dark-blue/30 border border-primary-gold/10
                   transform transition-all duration-300
                   hover:border-primary-gold/30 hover:shadow-lg hover:shadow-primary-gold/5`}

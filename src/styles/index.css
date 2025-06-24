@@ -12,7 +12,7 @@
 
 @layer components {
   .btn {
-    @apply px-6 py-3 rounded-md font-medium transition-all duration-300 ease-in-out;
+    @apply px-4 xs:px-6 py-2.5 xs:py-3 rounded-md font-medium transition-all duration-300 ease-in-out text-sm xs:text-base;
   }
 
   .btn-primary {
@@ -24,14 +24,33 @@
   }
 
   .section-title {
-    @apply text-3xl md:text-4xl font-bold mb-8 text-primary-gold;
+    @apply text-2xl xs:text-3xl md:text-4xl font-bold mb-6 xs:mb-8 text-primary-gold;
   }
 
   .card {
-    @apply bg-light-blue rounded-xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl;
+    @apply bg-light-blue rounded-xl p-4 xs:p-6 shadow-lg transition-all duration-300 hover:shadow-xl;
   }
   
   .container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Melhorias para texto responsivo */
+  .text-responsive {
+    @apply text-sm xs:text-base sm:text-lg;
+  }
+
+  .text-responsive-large {
+    @apply text-lg xs:text-xl sm:text-2xl md:text-3xl;
+  }
+
+  /* Spacing responsivo */
+  .spacing-responsive {
+    @apply space-y-4 xs:space-y-6 sm:space-y-8;
+  }
+
+  /* Grid responsivo melhorado */
+  .grid-responsive {
+    @apply grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 xs:gap-6 sm:gap-8;
   }
 } 
