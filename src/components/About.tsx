@@ -24,27 +24,27 @@ const About = () => {
         </motion.h2>
 
         {/* Conteúdo principal */}
-        <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 md:gap-12 items-center">
+        <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 md:gap-12 items-stretch">
           {/* Imagem na lateral com efeito de destaque */}
           <motion.div 
-            className="lg:w-2/5 flex justify-center"
+            className="lg:w-2/5 flex justify-center items-stretch pt-8"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
             viewport={{ once: true, margin: "-50px" }}
           >
-            <div className="relative group">
+            <div className="relative group h-full">
               {/* Container da imagem */}
               <motion.div 
                 initial={{ scale: 0.8, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative z-10 rounded-xl overflow-hidden border-2 border-primary-gold/20"
+                className="relative z-10 rounded-xl overflow-hidden border-2 border-primary-gold/20 h-full"
               >
                 <img 
                   src={euPolo} 
                   alt="Renan Desenvolvedor" 
-                  className="w-full max-w-sm md:max-w-md h-auto object-cover object-top transition-transform duration-700 group-hover:scale-105" 
+                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" 
                 />
               </motion.div>
             </div>
@@ -52,7 +52,7 @@ const About = () => {
           
           {/* Informações ao lado */}
           <motion.div 
-            className="lg:w-3/5"
+            className="lg:w-3/5 pt-8 flex flex-col justify-start"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
