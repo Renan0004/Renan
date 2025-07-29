@@ -4,67 +4,68 @@ import { useState } from 'react'
 
 const skillCategories = [
   {
-    title: "Linguagens e Lógica de Programação",
+    title: "Back-End",
     icon: <FaCode className="text-2xl" />,
     description: "Desenvolvimento de aplicações robustas e escaláveis",
     skills: [
       {
-        name: "JavaScript/TypeScript",
-        description: "React, Next.js, Node.js, Express, Styled Components, TailwindCSS, Framer Motion"
+        name: "Node.js",
+        description: "Express, APIs RESTful, desenvolvimento de servidores"
       },
       {
-        name: "Java",
-        description: "Spring Boot, Spring Security, JPA/Hibernate, Maven, JUnit"
+        name: ".NET",
+        description: "C#, ASP.NET, Entity Framework, desenvolvimento de aplicações"
       },
       {
-        name: "C#.NET",
-        description: ".NET Core, Entity Framework, ASP.NET MVC, LINQ"
+        name: "PHP",
+        description: "Desenvolvimento web, integração com bancos de dados"
+      },
+      {
+        name: "Delphi",
+        description: "Desenvolvimento de aplicações desktop e sistemas legados"
       },
       {
         name: "Python",
-        description: "Django, FastAPI, Pandas, NumPy, Selenium"
+        description: "Automação, scripts e desenvolvimento de aplicações"
+      },
+      {
+        name: "C#",
+        description: "Desenvolvimento de aplicações Windows e web"
       }
     ]
   },
   {
-    title: "Frontend",
+    title: "Front-End",
     icon: <FaServer className="text-2xl" />,
     description: "Desenvolvimento de interfaces modernas e responsivas",
     skills: [
       {
-        name: "React Ecosystem",
-        description: "React.js, Context API, Redux, React Query, React Hook Form"
+        name: "JavaScript",
+        description: "Desenvolvimento de aplicações web dinâmicas"
+      },
+      {
+        name: "React.js",
+        description: "Desenvolvimento de interfaces modernas e componentes reutilizáveis"
       },
       {
         name: "Next.js",
-        description: "App Router, Server Components, API Routes, Static/Dynamic Rendering"
+        description: "Aplicações React com SSR, SSG e otimizações de performance"
       },
       {
-        name: "Estilização",
-        description: "TailwindCSS, Styled Components, SASS, CSS Modules, Material-UI"
+        name: "TypeScript",
+        description: "JavaScript tipado para desenvolvimento mais seguro"
       },
       {
-        name: "UI/UX",
-        description: "Framer Motion, Radix UI, Headless UI, Storybook"
-      }
-    ]
-  },
-  {
-    title: "Backend",
-    icon: <FaServer className="text-2xl" />,
-    description: "Desenvolvimento de APIs e serviços",
-    skills: [
-      {
-        name: "Node.js",
-        description: "Express, NestJS, Prisma, TypeORM, JWT Authentication"
+        name: "HTML5",
+        description: "Estruturação semântica de páginas web"
       },
       {
-        name: "Spring Boot",
-        description: "Spring Security, Spring Data JPA, Spring Cloud, Microservices"
+        name: "CSS3",
+        description: "Estilização e responsividade de interfaces"
       },
       {
-        name: "APIs",
-        description: "REST, GraphQL, WebSockets, Swagger/OpenAPI"
+        name: "Tailwind CSS",
+        description: "Framework CSS utilitário para desenvolvimento rápido"
       }
     ]
   },
@@ -74,58 +75,66 @@ const skillCategories = [
     description: "Gerenciamento e modelagem de dados",
     skills: [
       {
-        name: "Relacionais",
-        description: "PostgreSQL, MySQL, SQL Server, Modelagem de Dados"
+        name: "PostgreSQL",
+        description: "Banco de dados relacional robusto e escalável"
       },
       {
-        name: "NoSQL",
-        description: "MongoDB, Redis, Firebase Realtime Database"
+        name: "MySQL",
+        description: "Sistema de gerenciamento de banco de dados"
       },
       {
-        name: "ORMs",
-        description: "Prisma, TypeORM, Sequelize, Entity Framework"
+        name: "Firebird",
+        description: "Banco de dados relacional para sistemas legados"
+      },
+      {
+        name: "SQL Server",
+        description: "Sistema de gerenciamento de banco de dados da Microsoft"
+      },
+      {
+        name: "SQLite",
+        description: "Banco de dados leve e portável"
       }
     ]
   },
   {
-    title: "DevOps & Cloud",
+    title: "Infraestrutura",
     icon: <FaTools className="text-2xl" />,
     description: "Infraestrutura e deploy de aplicações",
     skills: [
       {
-        name: "Containerização",
-        description: "Docker, Docker Compose, Kubernetes básico"
+        name: "AWS",
+        description: "Serviços em nuvem da Amazon Web Services"
       },
       {
-        name: "Cloud Services",
-        description: "AWS (EC2, S3, RDS, Lambda), Vercel, Railway"
+        name: "GitHub",
+        description: "Controle de versão e colaboração em código"
       },
       {
-        name: "CI/CD",
-        description: "GitHub Actions, AWS CodePipeline, Jenkins"
+        name: "GitHub Actions",
+        description: "Automação de CI/CD e workflows"
+      },
+      {
+        name: "GitLab CI/CD",
+        description: "Integração e entrega contínua"
+      },
+      {
+        name: "Postman",
+        description: "Teste e documentação de APIs"
+      },
+      {
+        name: "Docker & Docker Compose",
+        description: "Containerização e orquestração de aplicações"
       }
     ]
   },
   {
-    title: "Ferramentas & Práticas",
+    title: "Automação de Servidores",
     icon: <FaGitAlt className="text-2xl" />,
-    description: "Desenvolvimento e colaboração",
+    description: "Automação e administração de sistemas",
     skills: [
       {
-        name: "Versionamento",
-        description: "Git, GitHub, GitFlow, Conventional Commits"
-      },
-      {
-        name: "Testing",
-        description: "Jest, React Testing Library, JUnit, Cypress"
-      },
-      {
-        name: "Metodologias",
-        description: "Scrum, Kanban, Code Review, Clean Code"
-      },
-      {
-        name: "Ferramentas",
-        description: "JIRA, Figma, Postman, VS Code, IntelliJ"
+        name: "Linux Terminal",
+        description: "Automação de processos críticos e administração de servidores"
       }
     ]
   }

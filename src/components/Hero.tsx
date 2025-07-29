@@ -17,18 +17,19 @@ const Hero = () => {
               <span className="text-primary-gold text-4xl sm:text-5xl lg:text-6xl block mb-2 font-bold">
                 <span className="relative inline-block">
                   Renan
-                  <span className="text-secondary-gold ml-2 font-medium">Almeida</span>
+                  <span className="text-secondary-gold ml-2 font-medium">Dirceu</span>
                 </span>
               </span>
               <span className="bg-gradient-to-r from-primary-gold to-secondary-gold bg-clip-text text-transparent text-2xl sm:text-3xl lg:text-4xl font-medium">
-                Desenvolvedor Full Stack
+                Desenvolvedor FullStack
               </span>
             </h1>
             
             <p 
               className="text-gray-300 text-base sm:text-lg lg:text-xl mb-6 sm:mb-8 max-w-2xl mx-auto lg:mx-0"
             >
-              Transformando ideias em experiências digitais memoráveis através de código limpo e design inovador.
+              Desenvolvedor Full Stack com 2 anos de experiência em projetos públicos e privados, 
+              entregando soluções web escaláveis, performáticas e seguras.
             </p>
 
             <div 

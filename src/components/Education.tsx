@@ -13,19 +13,19 @@ interface Education {
 const educationData: Education[] = [
   {
     id: 1,
-    title: "Curso Superior de Tecnologia (CST), Tecnólogo Analise Desenvolvimento de Sistemas",
+    title: "Tecnólogo em Análise e Desenvolvimento de Sistemas",
     institution: "Universidade Positivo - UP",
-    period: "jan de 2025 - dez de 2027",
+    period: "2025 - Cursando",
     status: 'cursando',
     description: "Formação superior com foco em análise e desenvolvimento de sistemas."
   },
   {
     id: 2,
-    title: "Tecnologia (CST), técnico em desenvolvimento de sistemas",
-    institution: "Serviço Nacional de Aprendizagem Industrial - SENAI",
-    period: "jul de 2022 - dez de 2023",
+    title: "Técnico em Desenvolvimento de Sistemas",
+    institution: "Senai - PR",
+    period: "2024 - Concluído",
     status: 'concluido',
-    description: "Desenvolvimento de sistema integrado para gestão de festas de aniversário, implementação de APIs externas, criação de interfaces responsivas, modelagem de banco de dados, programação em C#."
+    description: "Formação técnica em desenvolvimento de sistemas com foco em programação e análise de sistemas."
   }
 ]
 

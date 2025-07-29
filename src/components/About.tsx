@@ -83,14 +83,16 @@ const About = () => {
                 className="pl-4 border-l-2 border-primary-gold/20"
               >
                 <p className="text-gray-300 mb-3 text-base md:text-lg">
-                  Desenvolvedor apaixonado por tecnologia com mais de 3 anos de experiência 
-                  em desenvolvimento de software. Especializado em criar soluções eficientes 
-                  e escaláveis usando as melhores práticas do mercado.
+                  Desenvolvedor Full Stack com 2 anos de experiência em projetos públicos e privados, 
+                  entregando soluções web escaláveis, performáticas e seguras.
                 </p>
                 <p className="text-gray-300 text-base md:text-lg">
-                  Comprometido com aprendizado contínuo e sempre buscando novos desafios 
-                  para expandir meus conhecimentos e habilidades técnicas. Focado em 
-                  transformar ideias em soluções inovadoras.
+                  Forte experiência com React.js, Next.js e TypeScript, criando interfaces modernas 
+                  e acessíveis, além de experiência com Node.js, .NET, Express e integração com APIs RESTful.
+                </p>
+                <p className="text-gray-300 text-base md:text-lg">
+                  Sou movido por desafios e apaixonado por desenvolver soluções que gerem impacto real, 
+                  sempre com código limpo, seguro e de fácil manutenção.
                 </p>
               </motion.div>
             </motion.div>
@@ -120,19 +122,20 @@ const About = () => {
                 className="space-y-4 md:space-y-6 pl-4 border-l-2 border-primary-gold/20"
               >
                 <div>
-                  <h4 className="text-lg md:text-xl text-secondary-gold font-medium">Desenvolvedor Full Stack</h4>
+                  <h4 className="text-lg md:text-xl text-secondary-gold font-medium">Desenvolvedor Front End - Artean Tecnologia</h4>
                   <p className="text-gray-300 mt-1 text-base md:text-lg">
-                    Especialista em desenvolvimento web moderno, criando soluções completas 
-                    que unem robustez no backend com experiências envolventes no frontend. 
-                    Foco em arquiteturas escaláveis e práticas de código limpo.
+                    Na Artea Tecnologia, tive destaque no desenvolvimento front-end com React.js e Next.js, 
+                    colaborando em soluções complexas com foco em usabilidade, performance e arquitetura escalável. 
+                    Também possuo experiência com tecnologias como Node.js, .NET, TypeScript, JavaScript e Delphi, 
+                    além de bancos de dados PostgreSQL, Firebird e MySQL.
                   </p>
                 </div>
                 <div>
-                  <h4 className="text-lg md:text-xl text-secondary-gold font-medium">Arquiteto de Soluções</h4>
+                  <h4 className="text-lg md:text-xl text-secondary-gold font-medium">Técnico de suporte em TI - Câmara Municipal de Curitiba</h4>
                   <p className="text-gray-300 mt-1 text-base md:text-lg">
-                    Experiência em projetar e implementar sistemas distribuídos, 
-                    integrações com APIs externas e otimização de performance. 
-                    Comprometido com segurança e qualidade de código.
+                    Durante meu estágio na Câmara Municipal de Curitiba, atuei com suporte técnico e automação 
+                    de processos críticos usando Terminal do Linux, aprimorando soluções de monitoramento, 
+                    performance e segurança em ambientes corporativos.
                   </p>
                 </div>
               </motion.div>
