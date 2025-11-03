@@ -31,6 +31,10 @@ const skillCategories = [
       {
         name: "C#",
         description: "Desenvolvimento de aplicações Windows e web"
+      },
+      {
+        name: "n8n",
+        description: "Desenvolvimento de workflows complexos e automação de processos"
       }
     ]
   },
@@ -104,6 +108,10 @@ const skillCategories = [
       {
         name: "AWS",
         description: "Serviços em nuvem da Amazon Web Services"
+      },
+      {
+        name: "Supabase",
+        description: "Plataforma de backend-as-a-service com PostgreSQL, autenticação e storage"
       },
       {
         name: "GitHub",
