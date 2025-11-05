@@ -11,7 +11,7 @@ const About = () => {
         <div className="absolute -top-40 -left-40 w-60 h-60 sm:w-80 sm:h-80 bg-primary-gold rounded-full blur-[100px]" />
         <div className="absolute top-1/2 -right-40 w-60 h-60 sm:w-80 sm:h-80 bg-secondary-gold rounded-full blur-[100px]" />
       </div>
-      
+
       <div className="container relative z-10 px-3 xs:px-4 sm:px-6 max-w-7xl mx-auto">
         <motion.h2
           className="text-3xl xs:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-10 md:mb-16 text-primary-gold"
@@ -26,7 +26,7 @@ const About = () => {
         {/* Conteúdo principal */}
         <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 md:gap-12 items-stretch">
           {/* Imagem na lateral com efeito de destaque */}
-          <motion.div 
+          <motion.div
             className="lg:w-2/5 flex justify-center items-stretch pt-8"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -35,23 +35,23 @@ const About = () => {
           >
             <div className="relative group h-full">
               {/* Container da imagem */}
-              <motion.div 
+              <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="relative z-10 rounded-xl overflow-hidden border-2 border-primary-gold/20 h-full"
               >
-                <img 
-                  src={euPolo} 
-                  alt="Renan Desenvolvedor" 
-                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" 
+                <img
+                  src={euPolo}
+                  alt="Renan Desenvolvedor"
+                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                 />
               </motion.div>
             </div>
           </motion.div>
-          
+
           {/* Informações ao lado */}
-          <motion.div 
+          <motion.div
             className="lg:w-3/5 pt-8 flex flex-col justify-start"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -59,14 +59,14 @@ const About = () => {
             viewport={{ once: true, margin: "-50px" }}
           >
             {/* Perfil */}
-            <motion.div 
+            <motion.div
               className="mb-6 md:mb-8"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.1 }}
             >
               <div className="flex items-center gap-4 mb-4">
-                <motion.span 
+                <motion.span
                   initial={{ scale: 0.5, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
@@ -76,7 +76,7 @@ const About = () => {
                 </motion.span>
                 <h3 className="text-xl md:text-2xl font-bold text-primary-gold">Perfil</h3>
               </div>
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
@@ -88,8 +88,8 @@ const About = () => {
                 </p>
                 <p className="text-gray-300 text-base md:text-lg">
                   Forte atuação em automação de processos, integrações de sistemas e desenvolvimento
-                  de interfaces modernas, utilizando tecnologias como React, Next.js, TypeScript, Node.js,
-                  .NET, PostgreSQL, AWS, Docker e n8n.
+                  de interfaces modernas, utilizando tecnologias como React, Next.js, TypeScript,
+                  Node.js, .NET, PostgreSQL, AWS, Docker e n8n.
                 </p>
                 <p className="text-gray-300 text-base md:text-lg">
                   Sou movido por desafios e apaixonado por desenvolver soluções que gerem impacto real,
@@ -99,14 +99,14 @@ const About = () => {
             </motion.div>
 
             {/* Experiência */}
-            <motion.div 
+            <motion.div
               className="mb-6 md:mb-8"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <div className="flex items-center gap-4 mb-4">
-                <motion.span 
+                <motion.span
                   initial={{ scale: 0.5, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.5 }}
@@ -124,8 +124,8 @@ const About = () => {
               >
                 <div>
                   <h4 className="text-lg md:text-xl text-secondary-gold font-medium">Desenvolvedor Flutter/Dart | SDUI - e-Ship WMS</h4>
-                  <p className="text-gray-300 mt-1 text-sm md:text-base opacity-80 mb-2">out/2025 – Até o momento</p>
-                  <p className="text-gray-300 mt-1 text-base md:text-lg">
+                  <p className="text-sm text-gray-400 mt-1">out/2025 – Até o momento</p>
+                  <p className="text-gray-300 mt-2 text-base md:text-lg">
                     Atuo como Desenvolvedor Flutter/Dart na e-Ship, especializando-me em soluções de Warehouse Management
                     System (WMS). Meu foco é em uma arquitetura avançada de Server-Driven UI (SDUI), onde sou responsável
                     por construir o framework dinâmico do aplicativo. Desenvolvimento do core do framework em Flutter/Dart,
@@ -135,28 +135,29 @@ const About = () => {
                 </div>
                 <div>
                   <h4 className="text-lg md:text-xl text-secondary-gold font-medium">Desenvolvedor Back End - NWDrones</h4>
-                  <p className="text-gray-300 mt-1 text-sm md:text-base opacity-80 mb-2">ago/2025 – Até o momento</p>
-                  <p className="text-gray-300 mt-1 text-base md:text-lg">
-                    Foco em automação e integração de sistemas, com experiência prática em JavaScript, n8n
-                    (desenvolvimento de workflows complexos), PostgreSQL, Supabase e Jupyter Notebook. Atuação
-                    em otimização de processos internos, desenho de arquiteturas automatizadas e implementação
-                    de soluções escaláveis para suportar as demandas do negócio.
+                  <p className="text-sm text-gray-400 mt-1">ago/2025 – Até o momento</p>
+                  <p className="text-gray-300 mt-2 text-base md:text-lg">
+                    Foco em automação e integração de sistemas, com experiência prática em JavaScript,
+                    n8n (desenvolvimento de workflows complexos), PostgreSQL, Supabase e Jupyter Notebook.
+                    Atuação em otimização de processos internos, desenho de arquiteturas automatizadas e
+                    implementação de soluções escaláveis para suportar as demandas do negócio.
                   </p>
                 </div>
                 <div>
                   <h4 className="text-lg md:text-xl text-secondary-gold font-medium">Desenvolvedor Full Stack - Artean Tecnologia</h4>
-                  <p className="text-gray-300 mt-1 text-sm md:text-base opacity-80 mb-2">02/09/2024 – 23/07/2025</p>
-                  <p className="text-gray-300 mt-1 text-base md:text-lg">
-                    Atuo com desenvolvimento de sistemas web, correções de bugs, implementações de novas funcionalidades
-                    e otimizações, utilizando Delphi, React.js, Next.js, Node.js, .NET e TypeScript, sempre priorizando
-                    escalabilidade e performance. Realizo integrações com APIs RESTful, otimização de queries em bancos
-                    de dados Firebird e PostgreSQL, além de trabalhar com AWS e pipelines de CI/CD utilizando GitHub.
+                  <p className="text-sm text-gray-400 mt-1">set/2024 – jul/2025</p>
+                  <p className="text-gray-300 mt-2 text-base md:text-lg">
+                    Atuei com desenvolvimento de sistemas web, correções de bugs, implementações de novas
+                    funcionalidades e otimizações, utilizando Delphi, React.js, Next.js, Node.js, .NET e
+                    TypeScript, sempre priorizando escalabilidade e performance. Realizei integrações com
+                    APIs RESTful, otimização de queries em bancos de dados Firebird e PostgreSQL, além de
+                    trabalhar com AWS e pipelines de CI/CD utilizando GitHub.
                   </p>
                 </div>
                 <div>
                   <h4 className="text-lg md:text-xl text-secondary-gold font-medium">Técnico de suporte em TI - Câmara Municipal de Curitiba</h4>
-                  <p className="text-gray-300 mt-1 text-sm md:text-base opacity-80 mb-2">01/06/2024 - 26/08/2024</p>
-                  <p className="text-gray-300 mt-1 text-base md:text-lg">
+                  <p className="text-sm text-gray-400 mt-1">jun/2024 - ago/2024</p>
+                  <p className="text-gray-300 mt-2 text-base md:text-lg">
                     Durante meu estágio na Câmara Municipal de Curitiba, atuei com suporte técnico e automação
                     de processos críticos usando Terminal do Linux, aprimorando soluções de monitoramento,
                     performance e segurança em ambientes corporativos.
@@ -172,7 +173,7 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.6 }}
             >
               <div className="flex items-center gap-4 mb-4">
-                <motion.span 
+                <motion.span
                   initial={{ scale: 0.5, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.7 }}
@@ -182,7 +183,7 @@ const About = () => {
                 </motion.span>
                 <h3 className="text-xl md:text-2xl font-bold text-primary-gold">Diferenciais</h3>
               </div>
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
@@ -195,7 +196,7 @@ const About = () => {
                   "Gestão eficiente de tempo",
                   "Adaptabilidade"
                 ].map((skill, index) => (
-                  <motion.div 
+                  <motion.div
                     key={skill}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -220,7 +221,7 @@ const About = () => {
           transition={{ duration: 0.7, delay: 1 }}
           viewport={{ once: true, margin: "-50px" }}
         >
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.1 }}
@@ -250,4 +251,4 @@ const About = () => {
   )
 }
 
-export default About 
+export default About
