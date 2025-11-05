@@ -31,6 +31,10 @@ const skillCategories = [
       {
         name: "C#",
         description: "Desenvolvimento de aplicações Windows e web"
+      },
+      {
+        name: "n8n",
+        description: "Desenvolvimento de workflows complexos e automação de processos"
       }
     ]
   },
@@ -106,6 +110,10 @@ const skillCategories = [
         description: "Serviços em nuvem da Amazon Web Services"
       },
       {
+        name: "Supabase",
+        description: "Backend as a Service com PostgreSQL, autenticação e storage"
+      },
+      {
         name: "GitHub",
         description: "Controle de versão e colaboração em código"
       },
@@ -135,6 +143,10 @@ const skillCategories = [
       {
         name: "Linux Terminal",
         description: "Automação de processos críticos e administração de servidores"
+      },
+      {
+        name: "Jupyter Notebook",
+        description: "Análise de dados, prototipagem e documentação de processos"
       }
     ]
   }

@@ -83,15 +83,16 @@ const About = () => {
                 className="pl-4 border-l-2 border-primary-gold/20"
               >
                 <p className="text-gray-300 mb-3 text-base md:text-lg">
-                  Desenvolvedor Full Stack com 2 anos de experiência em projetos públicos e privados, 
-                  entregando soluções web escaláveis, performáticas e seguras.
+                  Desenvolvedor Full Stack com experiência em projetos públicos e privados,
+                  atuando no desenvolvimento de soluções web escaláveis, performáticas e seguras.
                 </p>
                 <p className="text-gray-300 text-base md:text-lg">
-                  Forte experiência com React.js, Next.js e TypeScript, criando interfaces modernas 
-                  e acessíveis, além de experiência com Node.js, .NET, Express e integração com APIs RESTful.
+                  Forte atuação em automação de processos, integrações de sistemas e desenvolvimento
+                  de interfaces modernas, utilizando tecnologias como React, Next.js, TypeScript, Node.js,
+                  .NET, PostgreSQL, AWS, Docker e n8n.
                 </p>
                 <p className="text-gray-300 text-base md:text-lg">
-                  Sou movido por desafios e apaixonado por desenvolver soluções que gerem impacto real, 
+                  Sou movido por desafios e apaixonado por desenvolver soluções que gerem impacto real,
                   sempre com código limpo, seguro e de fácil manutenção.
                 </p>
               </motion.div>
@@ -115,26 +116,38 @@ const About = () => {
                 </motion.span>
                 <h3 className="text-xl md:text-2xl font-bold text-primary-gold">Experiência</h3>
               </div>
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
                 className="space-y-4 md:space-y-6 pl-4 border-l-2 border-primary-gold/20"
               >
                 <div>
-                  <h4 className="text-lg md:text-xl text-secondary-gold font-medium">Desenvolvedor Front End - Artean Tecnologia</h4>
+                  <h4 className="text-lg md:text-xl text-secondary-gold font-medium">Desenvolvedor Back End - NWDrones</h4>
+                  <p className="text-gray-300 mt-1 text-sm md:text-base opacity-80 mb-2">02/08/2025 – Até o momento</p>
                   <p className="text-gray-300 mt-1 text-base md:text-lg">
-                    Na Artea Tecnologia, tive destaque no desenvolvimento front-end com React.js e Next.js, 
-                    colaborando em soluções complexas com foco em usabilidade, performance e arquitetura escalável. 
-                    Também possuo experiência com tecnologias como Node.js, .NET, TypeScript, JavaScript e Delphi, 
-                    além de bancos de dados PostgreSQL, Firebird e MySQL.
+                    Foco em automação e integração de sistemas, com experiência prática em JavaScript, n8n
+                    (desenvolvimento de workflows complexos), PostgreSQL, Supabase e Jupyter Notebook. Atuação
+                    em otimização de processos internos, desenho de arquiteturas automatizadas e implementação
+                    de soluções escaláveis para suportar as demandas do negócio.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-lg md:text-xl text-secondary-gold font-medium">Desenvolvedor Full Stack - Artean Tecnologia</h4>
+                  <p className="text-gray-300 mt-1 text-sm md:text-base opacity-80 mb-2">02/09/2024 – 23/07/2025</p>
+                  <p className="text-gray-300 mt-1 text-base md:text-lg">
+                    Atuo com desenvolvimento de sistemas web, correções de bugs, implementações de novas funcionalidades
+                    e otimizações, utilizando Delphi, React.js, Next.js, Node.js, .NET e TypeScript, sempre priorizando
+                    escalabilidade e performance. Realizo integrações com APIs RESTful, otimização de queries em bancos
+                    de dados Firebird e PostgreSQL, além de trabalhar com AWS e pipelines de CI/CD utilizando GitHub.
                   </p>
                 </div>
                 <div>
                   <h4 className="text-lg md:text-xl text-secondary-gold font-medium">Técnico de suporte em TI - Câmara Municipal de Curitiba</h4>
+                  <p className="text-gray-300 mt-1 text-sm md:text-base opacity-80 mb-2">01/06/2024 - 26/08/2024</p>
                   <p className="text-gray-300 mt-1 text-base md:text-lg">
-                    Durante meu estágio na Câmara Municipal de Curitiba, atuei com suporte técnico e automação 
-                    de processos críticos usando Terminal do Linux, aprimorando soluções de monitoramento, 
+                    Durante meu estágio na Câmara Municipal de Curitiba, atuei com suporte técnico e automação
+                    de processos críticos usando Terminal do Linux, aprimorando soluções de monitoramento,
                     performance e segurança em ambientes corporativos.
                   </p>
                 </div>
