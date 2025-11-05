@@ -70,6 +70,14 @@ const skillCategories = [
       {
         name: "Tailwind CSS",
         description: "Framework CSS utilitário para desenvolvimento rápido"
+      },
+      {
+        name: "Flutter",
+        description: "Framework para desenvolvimento de aplicativos mobile multiplataforma"
+      },
+      {
+        name: "Dart",
+        description: "Linguagem de programação para desenvolvimento Flutter"
       }
     ]
   },
@@ -122,12 +130,20 @@ const skillCategories = [
         description: "Automação de CI/CD e workflows"
       },
       {
+        name: "GitLab",
+        description: "Controle de versão e colaboração em código"
+      },
+      {
         name: "GitLab CI/CD",
         description: "Integração e entrega contínua"
       },
       {
         name: "Postman",
         description: "Teste e documentação de APIs"
+      },
+      {
+        name: "Insomnia",
+        description: "Ferramenta para teste e desenvolvimento de APIs REST"
       },
       {
         name: "Docker & Docker Compose",

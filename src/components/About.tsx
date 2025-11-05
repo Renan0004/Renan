@@ -123,8 +123,19 @@ const About = () => {
                 className="space-y-4 md:space-y-6 pl-4 border-l-2 border-primary-gold/20"
               >
                 <div>
+                  <h4 className="text-lg md:text-xl text-secondary-gold font-medium">Desenvolvedor Flutter/Dart | SDUI - e-Ship WMS</h4>
+                  <p className="text-gray-300 mt-1 text-sm md:text-base opacity-80 mb-2">out/2025 – Até o momento</p>
+                  <p className="text-gray-300 mt-1 text-base md:text-lg">
+                    Atuo como Desenvolvedor Flutter/Dart na e-Ship, especializando-me em soluções de Warehouse Management
+                    System (WMS). Meu foco é em uma arquitetura avançada de Server-Driven UI (SDUI), onde sou responsável
+                    por construir o framework dinâmico do aplicativo. Desenvolvimento do core do framework em Flutter/Dart,
+                    implementação da lógica de SDUI (Reflection e Renderização Dinâmica), integração de WebServices (APIs)
+                    para regras de negócio específicas do WMS, utilizando GitLab para versionamento e Insomnia para testes de API.
+                  </p>
+                </div>
+                <div>
                   <h4 className="text-lg md:text-xl text-secondary-gold font-medium">Desenvolvedor Back End - NWDrones</h4>
-                  <p className="text-gray-300 mt-1 text-sm md:text-base opacity-80 mb-2">02/08/2025 – Até o momento</p>
+                  <p className="text-gray-300 mt-1 text-sm md:text-base opacity-80 mb-2">ago/2025 – Até o momento</p>
                   <p className="text-gray-300 mt-1 text-base md:text-lg">
                     Foco em automação e integração de sistemas, com experiência prática em JavaScript, n8n
                     (desenvolvimento de workflows complexos), PostgreSQL, Supabase e Jupyter Notebook. Atuação
